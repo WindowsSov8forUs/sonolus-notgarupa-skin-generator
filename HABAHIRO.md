@@ -9,18 +9,18 @@
 
 方向键皮肤仍按玩家设置。判定皮肤 `judgeskin/habahiro` 与 skin00 逐字节相同，所以继续使用 `judge_*`。
 
-HABAHIRO 是 NotGarupa 的固定组成部分，生成器每次都会输出它，没有开关。一个关卡只能选一个 skin 条目，而原作对 `#HABAHIRO` 关卡强制使用 HABAHIRO 资源，所以它是同一个包里的第二个条目，由服务器为这类关卡强制选用。它包含普通皮肤的全部精灵（名称与像素都不变），另外加上下文列出的 `habahiro/<原作名>` 精灵。
+HABAHIRO 是 NotGarupa 的固定组成部分，生成器每次都会输出它，没有开关。一个关卡只能选一个 skin 条目，而原作对 `#HABAHIRO` 关卡强制使用 HABAHIRO 的音符、lane 与判定皮肤（方向键皮肤保留玩家设置），所以每种方向键皮肤各有一个 HABAHIRO 条目，由服务器为这类关卡强制选用。条目中普通命名的精灵用 skin00 音符与 lane（lane 变更之前显示的就是 skin00 lane），另外加上下文列出的 `habahiro/<原作名>` 精灵。
 
 | 项 | 普通 | HABAHIRO |
 |---|---|---|
-| 条目名 | `notgarupa-skin00-skin00` | `notgarupa-skin00-skin00-habahiro` |
+| 条目名 | `notgarupa-skin00-skin00-skin00` 等 | `notgarupa-habahiro-<方向键>`（如 `notgarupa-habahiro-skin00`） |
 | sonolus-pack 源 / 可加载的包 | `out/source` / `out/pack`（两个条目在同一个包里） | 同左 |
-| 契约 | `contract.json` | `contract-habahiro.json`（另有顶层 `habahiro` 段，内容即本文的机器可读版） |
+| 契约 | `out/contracts/<条目>.json` | 同左（另有顶层 `habahiro` 段，内容即本文的机器可读版） |
 | 纹理 | 2048×4096 | 4096×8192 |
 
 HABAHIRO 条目的纹理是 4096×8192，全部按原分辨率存放，没有缩小。只有宽音符图集一项就约有 15 Mpx²，所以 4096² 放不下。这超出了 Sonolus 建议的 2048²，但没有超过 8192 的上限。
 
-背景由 `sonolus-notgarupa-background-generator` 生成，条目为 `notgarupa-habahiro-normal` 与 `notgarupa-habahiro-fever`。粒子由粒子生成器负责，不在本条目内。
+背景由 `sonolus-notgarupa-background-generator` 生成，条目为 `notgarupa-habahiro-normal` 与 `notgarupa-habahiro-fever`。粒子由粒子生成器负责（`notgarupa-habahiro-<方向键特效>`），不在本条目内。
 
 ## 宽音符精灵名
 
@@ -101,4 +101,4 @@ Sudden 区域也重新绑定到 `habahiro/bg_line_rhythm` 这张贴图，原作�
 | `habahiro/bg_line_rhythm`、`habahiro/game_play_line*` | Bestdori `ingameskin/fieldskin/habahiro` |
 | `habahiro/*_flash*` | Bestdori `ingameskin/tapeffect/habahiro`（`.sprites`） |
 
-每个精灵的名称、来源、`w`/`h`、pivot、PPU 与说明都记录在 `contract-habahiro.json` 里。分组如下：`habahiro`（音符与长条），`habahiro_field`，`habahiro_flash`。
+每个精灵的名称、来源、`w`/`h`、pivot、PPU 与说明都记录在 HABAHIRO 条目的契约 `out/contracts/notgarupa-habahiro-<方向键>.json` 里。分组如下：`habahiro`（音符与长条），`habahiro_field`，`habahiro_flash`。

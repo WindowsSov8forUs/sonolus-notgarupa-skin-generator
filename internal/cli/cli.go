@@ -16,7 +16,7 @@ import (
 
 type Common struct {
 	Out     string
-	Pack    string
+	Workers int
 	Cache   string
 	Regions []string
 	Offline bool
@@ -26,8 +26,8 @@ type Common struct {
 
 // Register adds the shared flags to fs.
 func (c *Common) Register(fs *flag.FlagSet) {
-	fs.StringVar(&c.Out, "out", "out/source", "sonolus-pack source directory to (re)create")
-	fs.StringVar(&c.Pack, "pack", "out/pack", "run sonolus-pack-go into this directory (empty: skip)")
+	fs.StringVar(&c.Out, "out", "out", "output directory: source/ (sonolus-pack source), pack/ (servable pack) and contracts/")
+	fs.IntVar(&c.Workers, "j", 0, "items built at once (default: number of CPUs)")
 	fs.StringVar(&c.Cache, "cache", ".cache", "download cache directory")
 	fs.Func("regions", "Bestdori server priority order, comma-separated; each bundle comes from the first server that has it (default "+strings.Join(bestdori.DefaultRegions, ",")+")", func(v string) error {
 		c.Regions = nil

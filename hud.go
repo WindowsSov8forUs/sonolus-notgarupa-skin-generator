@@ -55,11 +55,9 @@ var plainSources = []plainSource{
 		note: "speaker glow, widget 118×114"},
 	{name: "Pyllium", path: "prefabs/bms/stage/stage-psyllium.png", group: "stage", additive: true, pivot: [2]float64{0.5, 0},
 		note: "psyllium 166×138: right half glow, left half core; widgets 64×128, pivot bottom"},
-	{name: "startup_line_star", path: "prefabs/bms/information/startup-line-star.png", group: "startup", pivot: [2]float64{0.5, 0.5}},
-	{name: "startup_title_base", path: "prefabs/bms/information/startup-title-base.png", group: "startup", pivot: [2]float64{0.5, 0.5}},
 }
 
-func addHUD(b *skinBuilder, o options) error {
+func addHUD(b *skinBuilder) error {
 	catData, err := apkFile("render-catalog.json")
 	if err != nil {
 		return err
@@ -117,9 +115,6 @@ func addHUD(b *skinBuilder, o options) error {
 	}
 
 	for _, ps := range plainSources {
-		if ps.group == "startup" && !o.startup {
-			continue
-		}
 		img, err := apkTexture(ps.path)
 		if err != nil {
 			return err

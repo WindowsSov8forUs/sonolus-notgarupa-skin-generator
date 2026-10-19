@@ -31,7 +31,7 @@ const habahiroLaneChange = 0.4166666567325592
 
 var habahiroWidthPx = [8]int{0, 308, 524, 736, 952, 1164, 1380, 1596}
 
-func addHabahiro(b *skinBuilder, bd *bestdori.Client, o options) error {
+func addHabahiro(b *skinBuilder, bd *bestdori.Client) error {
 	// Note atlas (RhythmGameSprites1..5,16): 6 families × 28 runs, slide-among
 	// per width, up-flick icons per width, simultaneous_line.
 	hs, htex, err := bundleSprites(bd, habahiroNoteBundle)
@@ -70,7 +70,7 @@ func addHabahiro(b *skinBuilder, bd *bestdori.Client, o options) error {
 		return err
 	}
 	for _, n := range sortedKeys(fs) {
-		if n == "game_play_line_skill_adjust_effect" && !o.skillAdjust {
+		if n == skillAdjustSprite {
 			continue
 		}
 		note := fmt.Sprintf("replaces %s at laneChangeTime + %.10g s (ChangeLane event)", n, habahiroLaneChange)

@@ -1,10 +1,15 @@
-// Package skin builds the NotGarupa skin item: the original game's
-// note/directional/field/judge skins, the self-drawn HUD, lane-tap, stage and
+// Package skin builds the NotGarupa skin items: the original game's note,
+// directional, lane and judge skins, the self-drawn HUD, lane-tap, stage and
 // Full Combo / All Perfect art, and pre-rendered text. Sprite names are the
 // original sprite names; see the engine's RESOURCE_CONTRACT.md.
 //
-// Generate returns the skin item in memory (for embedding in a server);
-// WriteSource writes it as a sonolus-pack source tree. The command in
+// One item is built for every combination of the live settings that select
+// skin art, as the original's master data defines them (internal/master): the
+// normal note × lane × directional settings, the Collaboration / Limited rows
+// with their fixed components, and the chart-forced HABAHIRO items.
+//
+// Generate streams the items in memory (for embedding in a server);
+// CreateSourceTree writes them as a sonolus-pack source tree. The command in
 // cmd/sonolus-notgarupa-skin-generator wraps both.
 package skin
 
@@ -13,6 +18,8 @@ import (
 	"fmt"
 	"net/http"
 	"path/filepath"
+	"runtime"
+	"sync"
 
 	"github.com/WindowsSov8forUs/sonolus-core-go/codec"
 	"github.com/WindowsSov8forUs/sonolus-core-go/core/resource"
@@ -20,6 +27,7 @@ import (
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/atlas"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/bestdori"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/imgutil"
+	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/master"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/packout"
 )
 
@@ -54,32 +62,19 @@ func (s Source) bestdori(ctx context.Context) *bestdori.Client {
 	return b
 }
 
-// Options selects what to build. The zero value builds the default item.
+// Options configures a run. The zero value builds every item.
 type Options struct {
-	// Note is the note skin bundle ingameskin/noteskin/<id> ("" = skin00).
-	Note string
-	// Directional is the directional flick note skin bundle ("" =
-	// directionalflickskin00).
-	Directional string
-	// Field is the field (lane) skin bundle ingameskin/fieldskin/<id> ("" =
-	// skin00).
-	Field string
-	// Judge is the judge atlas bundle ingameskin/judgeskin/<id> ("" = skin00).
-	Judge string
-	// Startup includes the live startup direction art (startup_line_star,
-	// startup_title_base).
-	Startup bool
-	// SkillAdjust includes game_play_line_skill_adjust_effect.
-	SkillAdjust bool
-	// MaxTexture is the maximum texture side of the ordinary item, a power of
-	// two (0 = 4096). The HABAHIRO item uses at least 8192: its
-	// full-resolution wide notes need 4096×8192.
-	MaxTexture int
-	// Name is the ordinary item name ("" = notgarupa-<note>-<field>); the
-	// HABAHIRO item is <Name>-habahiro.
-	Name   string
 	Source Source
+	// Workers is the number of items built at once (0: runtime.NumCPU()).
+	Workers int
 }
+
+// Texture size limits: the ordinary items fit 2048×4096, the HABAHIRO items
+// keep the full-resolution wide notes in 4096×8192.
+const (
+	maxTexture         = 4096
+	maxTextureHabahiro = 8192
+)
 
 // Result is one generated skin item.
 type Result struct {
@@ -87,17 +82,17 @@ type Result struct {
 	// Texture) are left empty for the caller to fill, e.g. with the server's
 	// repository URLs of Files().
 	Item database.DatabaseSkinItem
-	// Habahiro marks the item of #HABAHIRO levels, which the server forces
+	// Habahiro marks the items of #HABAHIRO levels, which the server forces
 	// for them as the original does.
 	Habahiro  bool
 	Data      resource.SkinData
 	Texture   []byte // PNG
-	Thumbnail []byte // PNG; nil when the thumbnail sprite is missing
+	Thumbnail []byte // PNG
 	Contract  Contract
 }
 
 // Contract describes every sprite's geometry for the engine (written as
-// contract.json by the command).
+// contracts/<item>.json by the command).
 type Contract struct {
 	Groups   map[string]int  `json:"groups"`
 	Habahiro map[string]any  `json:"habahiro,omitempty"`
@@ -114,127 +109,209 @@ type ContractOptions struct {
 	Habahiro    bool   `json:"habahiro"`
 	Judge       string `json:"judge"`
 	Note        string `json:"note"`
+	// NoteSyncEdgeMargin is the master value of the note skin.
+	NoteSyncEdgeMargin float64 `json:"noteSyncEdgeMargin"`
 }
 
 // Files returns the item's resource files by item.json field name:
-// "thumbnail" (when present), "data" (gzip-compressed SkinData) and
-// "texture".
+// "thumbnail", "data" (gzip-compressed SkinData) and "texture".
 func (r *Result) Files() (map[string][]byte, error) {
 	data, err := codec.Compress(r.Data)
 	if err != nil {
 		return nil, fmt.Errorf("compress skin data: %w", err)
 	}
-	files := map[string][]byte{"data": data, "texture": r.Texture}
-	if r.Thumbnail != nil {
-		files["thumbnail"] = r.Thumbnail
-	}
-	return files, nil
+	return map[string][]byte{"thumbnail": r.Thumbnail, "data": data, "texture": r.Texture}, nil
 }
 
-// WriteSource (re)creates root as a sonolus-pack source tree holding the
-// given skin items.
-func WriteSource(root string, results ...*Result) error {
+// SourceTree is a sonolus-pack source tree that items are added to.
+type SourceTree struct{ src *packout.Source }
+
+// CreateSourceTree (re)creates root as a sonolus-pack source tree.
+func CreateSourceTree(root string) (*SourceTree, error) {
 	src, err := packout.Init(root, packout.T("NotGarupa Skins", "NotGarupa 皮肤", "NotGarupa スキン"))
-	if err != nil {
-		return err
-	}
-	for _, r := range results {
-		rel, err := src.ItemDir("skins", r.Item.Name, packout.Item{
-			Version: r.Item.Version, Title: r.Item.Title, Subtitle: r.Item.Subtitle, Author: r.Item.Author,
-			Tags: r.Item.Tags, Description: r.Item.Description,
-		})
-		if err != nil {
-			return err
-		}
-		files, err := r.Files()
-		if err != nil {
-			return err
-		}
-		if err := src.WriteFiles(rel, files); err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-// Generate builds the two skin items NotGarupa uses, in this order: the
-// ordinary item and the item of #HABAHIRO levels (everything of the ordinary
-// item plus the HABAHIRO wide-note, lane-change field and flash sprites
-// habahiro/<name>; see HABAHIRO.md).
-func Generate(ctx context.Context, opts Options) ([]*Result, error) {
-	o := options{noteSkin: opts.Note, directionalSkin: opts.Directional, fieldSkin: opts.Field, judgeSkin: opts.Judge,
-		startup: opts.Startup, skillAdjust: opts.SkillAdjust}
-	for _, d := range []struct {
-		v   *string
-		def string
-	}{{&o.noteSkin, "skin00"}, {&o.directionalSkin, "directionalflickskin00"}, {&o.fieldSkin, "skin00"}, {&o.judgeSkin, "skin00"}} {
-		if *d.v == "" {
-			*d.v = d.def
-		}
-	}
-	maxTexture := opts.MaxTexture
-	if maxTexture <= 0 {
-		maxTexture = 4096
-	}
-	name := opts.Name
-	if name == "" {
-		name = fmt.Sprintf("notgarupa-%s-%s", o.noteSkin, o.fieldSkin)
-	}
-	bd := opts.Source.bestdori(ctx)
-	normal, err := generate(bd, o, maxTexture, name)
 	if err != nil {
 		return nil, err
 	}
-	o.habahiro = true
-	habahiro, err := generate(bd, o, max(maxTexture, 8192), name+"-habahiro")
-	if err != nil {
-		return nil, fmt.Errorf("HABAHIRO item: %w", err)
-	}
-	return []*Result{normal, habahiro}, nil
+	return &SourceTree{src}, nil
 }
 
-func generate(bd *bestdori.Client, o options, maxTexture int, name string) (*Result, error) {
-	b := newSkinBuilder()
-	steps := []struct {
-		what string
-		run  func() error
-	}{
-		{"note skins", func() error { return addNoteSkins(b, bd, o) }},
-		{"judge skin", func() error { return addJudgeSkin(b, bd, o) }},
-		{"HUD / lane / stage / clear art", func() error { return addHUD(b, o) }},
-		{"tints", func() error { return addTints(b) }},
-		{"glyphs", func() error { return addGlyphs(b) }},
+// Add writes one item.
+func (t *SourceTree) Add(r *Result) error {
+	rel, err := t.src.ItemDir("skins", r.Item.Name, packout.Item{
+		Version: r.Item.Version, Title: r.Item.Title, Subtitle: r.Item.Subtitle, Author: r.Item.Author,
+		Tags: r.Item.Tags, Description: r.Item.Description,
+	})
+	if err != nil {
+		return err
 	}
-	if o.habahiro {
-		steps = append(steps, struct {
-			what string
-			run  func() error
-		}{"HABAHIRO note / field / flash", func() error { return addHabahiro(b, bd, o) }})
+	files, err := r.Files()
+	if err != nil {
+		return err
 	}
-	for _, s := range steps {
-		if err := s.run(); err != nil {
-			return nil, fmt.Errorf("%s: %w", s.what, err)
+	return t.src.WriteFiles(rel, files)
+}
+
+// Items returns the name of every item Generate builds, in generation order.
+func Items() ([]string, error) {
+	m, err := master.Load()
+	if err != nil {
+		return nil, err
+	}
+	var names []string
+	for _, s := range m.Skins() {
+		names = append(names, s.Name())
+	}
+	return names, nil
+}
+
+// Generate builds every skin item and hands each to emit as soon as it is
+// ready. emit is called from one goroutine at a time; items arrive in no
+// particular order. The first error (from a build or from emit) stops the
+// run and is returned.
+func Generate(ctx context.Context, opts Options, emit func(*Result) error) error {
+	m, err := master.Load()
+	if err != nil {
+		return err
+	}
+	specs := m.Skins()
+	workers := opts.Workers
+	if workers <= 0 {
+		workers = runtime.NumCPU()
+	}
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel()
+	ps := newParts(opts.Source.bestdori(ctx))
+
+	jobs := make(chan master.Skin)
+	results := make(chan *Result)
+	errs := make(chan error, workers+1)
+	var wg sync.WaitGroup
+	for range workers {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for spec := range jobs {
+				r, err := build(ps, spec)
+				if err != nil {
+					errs <- fmt.Errorf("%s: %w", spec.Name(), err)
+					cancel()
+					return
+				}
+				select {
+				case results <- r:
+				case <-ctx.Done():
+					return
+				}
+			}
+		}()
+	}
+	go func() {
+		defer close(jobs)
+		for _, spec := range specs {
+			select {
+			case jobs <- spec:
+			case <-ctx.Done():
+				return
+			}
+		}
+	}()
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
+	for r := range results {
+		if err := emit(r); err != nil {
+			cancel()
+			for range results {
+			}
+			return err
 		}
 	}
-	convertAdditiveNoteSprites(b)
-	b.trimTransparent()
+	select {
+	case err := <-errs:
+		return err
+	default:
+	}
+	return ctx.Err()
+}
 
+// build assembles one item from its parts, in a fixed order: note skin,
+// directional skin, lane, judge, HUD, HABAHIRO additions, default judge and
+// markers.
+func build(ps *parts, spec master.Skin) (*Result, error) {
+	notes, lane := spec.Notes, spec.Lane
+	if spec.Habahiro {
+		// The ordinary-named sprites of a HABAHIRO item: the lane shown before
+		// the lane change, and skin00 notes (the forced habahiro note skin is
+		// drawn through the habahiro/ sprites).
+		notes, lane = "skin00", master.HabahiroPreField
+	}
+	var list []*part
+	add := func(p *part, err error) error {
+		if err == nil {
+			list = append(list, p)
+		}
+		return err
+	}
+	if err := add(ps.notes(notes)); err != nil {
+		return nil, err
+	}
+	if err := add(ps.directional(spec.Directional)); err != nil {
+		return nil, err
+	}
+	if err := add(ps.field(lane)); err != nil {
+		return nil, err
+	}
+	if err := add(ps.judge(spec.Judge, "")); err != nil {
+		return nil, err
+	}
+	if err := add(ps.hud()); err != nil {
+		return nil, err
+	}
+	if spec.Habahiro {
+		if err := add(ps.habahiro()); err != nil {
+			return nil, err
+		}
+	}
+	if err := add(ps.judge(master.DefaultJudge, defaultJudgePrefix)); err != nil {
+		return nil, err
+	}
+	if spec.NoteSyncEdgeMargin > 1 {
+		if err := add(ps.syncEdgeMargin()); err != nil {
+			return nil, err
+		}
+	}
+
+	b := newSkinBuilder()
+	for _, p := range list {
+		for _, s := range p.sprites {
+			if _, dup := b.byName[s.meta.Name]; dup {
+				return nil, fmt.Errorf("duplicate sprite %q", s.meta.Name)
+			}
+			b.sprites = append(b.sprites, s)
+			b.byName[s.meta.Name] = s
+		}
+	}
+
+	limit := maxTexture
+	if spec.Habahiro {
+		limit = maxTextureHabahiro
+	}
 	items := make([]atlas.Item, 0, len(b.sprites))
 	for _, s := range b.sprites {
 		items = append(items, atlas.Item{Names: []string{s.meta.Name}, Image: s.img})
 	}
-	packed, err := atlas.PackPOT(items, maxTexture, 2)
+	packed, err := atlas.PackPOT(items, limit, 2)
 	if err != nil {
-		return nil, fmt.Errorf("%w (try a larger maximum texture size)", err)
+		return nil, err
 	}
 	data := resource.SkinData{
 		Width:         float64(packed.Texture.Rect.Dx()),
 		Height:        float64(packed.Texture.Rect.Dy()),
 		Interpolation: true,
 	}
-	identity := packout.IdentityTransform()
 	transform := resource.SkinDataTransform{}
-	for k, v := range identity {
+	for k, v := range packout.IdentityTransform() {
 		transform[k] = resource.SkinDataExpression(v)
 	}
 	metas := b.sortedMeta()
@@ -250,41 +327,43 @@ func generate(bd *bestdori.Client, o options, maxTexture int, name string) (*Res
 		return nil, err
 	}
 
-	title := fmt.Sprintf("NotGarupa %s / %s", o.noteSkin, o.fieldSkin)
-	if o.habahiro {
-		title += " (HABAHIRO)"
-	}
-	desc := fmt.Sprintf("Note: %s, directional: %s, field: %s, judge: %s, HABAHIRO: %v.", o.noteSkin, o.directionalSkin, o.fieldSkin, o.judgeSkin, o.habahiro)
-	if o.habahiro {
-		desc += " For #HABAHIRO levels: everything of the normal skin plus the original HABAHIRO wide-note atlas, its long bodies, the lane-change field (habahiro/bg_line_rhythm, habahiro/game_play_line) and the lane-change flash."
-	}
 	thumbName := "note_normal_3"
-	if o.habahiro {
+	if spec.Habahiro {
 		thumbName = habahiroPrefix + "note_normal_2_3_4"
 	}
-	var thumbnail []byte
-	if thumb, ok := b.byName[thumbName]; ok {
-		if thumbnail, err = imgutil.EncodePNG(thumb.img); err != nil {
-			return nil, err
-		}
+	thumb, ok := b.byName[thumbName]
+	if !ok {
+		return nil, fmt.Errorf("no thumbnail sprite %s", thumbName)
+	}
+	thumbnail, err := imgutil.EncodePNG(thumb.img)
+	if err != nil {
+		return nil, err
+	}
+
+	title := fmt.Sprintf("NotGarupa %s / %s / %s", spec.Notes, spec.Lane, spec.Directional)
+	desc := fmt.Sprintf("Note: %s, lane: %s, directional: %s, judge: %s.", spec.Notes, spec.Lane, spec.Directional, spec.Judge)
+	if spec.Habahiro {
+		title = fmt.Sprintf("NotGarupa HABAHIRO / %s", spec.Directional)
+		desc = fmt.Sprintf("For #HABAHIRO levels (the original forces the habahiro note skin, lane and judge skin): the skin00 lane until the lane change, the original HABAHIRO wide-note atlas, its long bodies, the lane-change field and flash; directional: %s.", spec.Directional)
 	}
 	groups := map[string]int{}
 	for _, m := range metas {
 		groups[m.Group]++
 	}
 	contract := Contract{
-		Groups:  groups,
-		Options: ContractOptions{Directional: o.directionalSkin, Field: o.fieldSkin, Habahiro: o.habahiro, Judge: o.judgeSkin, Note: o.noteSkin},
-		Skin:    name,
+		Groups: groups,
+		Options: ContractOptions{Directional: spec.Directional, Field: spec.Lane, Habahiro: spec.Habahiro, Judge: spec.Judge,
+			Note: spec.Notes, NoteSyncEdgeMargin: spec.NoteSyncEdgeMargin},
+		Skin:    spec.Name(),
 		Sprites: metas,
 		Texture: [2]int{packed.Texture.Rect.Dx(), packed.Texture.Rect.Dy()},
 	}
-	if o.habahiro {
+	if spec.Habahiro {
 		contract.Habahiro = habahiroContract()
 	}
 	return &Result{
 		Item: database.DatabaseSkinItem{
-			Name:        name,
+			Name:        spec.Name(),
 			Version:     packout.SkinVersion,
 			Title:       packout.T(title, title, title),
 			Subtitle:    packout.T("BanG Dream! Girls Band Party! (original art)", "BanG Dream! 少女乐团派对！（原作素材）", "バンドリ！ ガールズバンドパーティ！（原作素材）"),
@@ -292,7 +371,7 @@ func generate(bd *bestdori.Client, o options, maxTexture int, name string) (*Res
 			Tags:        []database.DatabaseTag{},
 			Description: packout.T(desc, desc, desc),
 		},
-		Habahiro:  o.habahiro,
+		Habahiro:  spec.Habahiro,
 		Data:      data,
 		Texture:   texture,
 		Thumbnail: thumbnail,
