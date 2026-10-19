@@ -3,7 +3,8 @@ package skin
 // Assets built into the original game's APK (not available as downloadable
 // asset bundles), shipped with the generator under assets/apk: the HUD,
 // lane-effect and UI atlases with their atlas rows (render-catalog.json), the
-// stage, Sudden, score-gauge and game-clear art, and the sgm font.
+// stage, Sudden, score-gauge and game-clear art, the GameOverCover texture
+// of the gameplay scene, and the sgm font.
 
 import (
 	"embed"

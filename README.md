@@ -1,6 +1,6 @@
 # sonolus-notgarupa-skin-generator
 
-生成 NotGarupa 的全部皮肤条目：原作的音符 / 方向键 / lane 场 / 判定文字皮肤，自绘 HUD 所需的全部部件（分数、评级槽、生命槽、连击数字、AddScore、FAST/SLOW、Auto 标签、SS 特效）、lane 光柱、舞台灯光与音箱、Full Combo / All Perfect 文字，以及预渲染的字形。精灵名即原作精灵名，约定见 `sonolus-notgarupa-engine/docs/RESOURCE_CONTRACT.md`。
+生成 NotGarupa 的全部皮肤条目：原作的音符 / 方向键 / lane 场 / 判定文字皮肤，自绘 HUD 所需的全部部件（分数、评级槽、生命槽、生命遮罩、连击数字、AddScore、FAST/SLOW、Auto 标签、SS 特效）、lane 光柱、舞台灯光与音箱、Full Combo / All Perfect 文字，以及预渲染的字形。精灵名即原作精灵名，约定见 `sonolus-notgarupa-engine/docs/RESOURCE_CONTRACT.md`。
 
 ## 生成哪些条目
 
@@ -27,7 +27,7 @@
 来源：
 
 - Bestdori 资源（音符、方向键、场地、判定皮肤），按服务器优先级取第一个拥有该 bundle 的服务器，运行时下载到 `.cache/`。
-- 原作 APK 内置资源（不在 AssetBundle 中、无法联网获取）：HUD 图集（`rhythm-game-ui`、`rhythm-game-additive`、连击数字、`uicommon`、`ui-additive-effect`）、lane tap 光柱、Sudden 线、分数槽高分段贴图、舞台灯光 / 音箱 / 荧光棒、FC / AP 字样与 `sgm` 字体，随项目放在 `assets/apk/`（`go:embed` 编入程序）。`assets/apk/render-catalog.json` 是这些图集的 atlas 行（矩形、pivot、border）。
+- 原作 APK 内置资源（不在 AssetBundle 中、无法联网获取）：HUD 图集（`rhythm-game-ui`、`rhythm-game-additive`、连击数字、`uicommon`、`ui-additive-effect`）、lane tap 光柱、Sudden 线、分数槽高分段贴图、舞台灯光 / 音箱 / 荧光棒、生命遮罩 `sub_glow`（演奏场景的 GameOverCover 贴图）、FC / AP 字样与 `sgm` 字体，随项目放在 `assets/apk/`（`go:embed` 编入程序）。`assets/apk/render-catalog.json` 是这些图集的 atlas 行（矩形、pivot、border）。
 
 ## 命令行
 

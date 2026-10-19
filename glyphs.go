@@ -38,8 +38,6 @@ type textLabel struct {
 
 var textLabels = []textLabel{
 	{"autolive", "オートライブ", 24, "FFFFFF", -1, "Auto Live caption"},
-	{"gameover_1", "ライフゼロ!", 22, "FF0000", 0, "life-zero message line 1 (spacingY 2)"},
-	{"gameover_2", "獲得スコアDOWN!", 22, "FF0000", 0, "life-zero message line 2"},
 }
 
 func parseHex(h string) color.NRGBA {

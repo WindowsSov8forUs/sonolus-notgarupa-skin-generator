@@ -93,6 +93,18 @@ func AdditiveToAlpha(src *image.NRGBA) *image.NRGBA {
 	return out
 }
 
+// SubtractiveToAlpha converts reverse-subtract art (dst − src·a) for normal
+// alpha blending: black with alpha = max(rgb·a), the strength it subtracts.
+func SubtractiveToAlpha(src *image.NRGBA) *image.NRGBA {
+	out := image.NewNRGBA(src.Rect)
+	for i := 0; i < len(src.Pix); i += 4 {
+		a := float64(src.Pix[i+3]) / 255
+		m := math.Max(float64(src.Pix[i+0]), math.Max(float64(src.Pix[i+1]), float64(src.Pix[i+2]))) / 255 * a
+		out.Pix[i+3] = to8(m)
+	}
+	return out
+}
+
 // Scale resamples to an exact size with a Catmull-Rom filter.
 func Scale(src *image.NRGBA, w, h int) *image.NRGBA {
 	out := image.NewNRGBA(image.Rect(0, 0, w, h))

@@ -9,6 +9,8 @@ import (
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/unityasset"
 )
 
+const subtractiveNote = "reverse-subtract art converted for normal alpha blending: black, alpha = max(rgb·a) (equal where it subtracts white)"
+
 const additiveNote = "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
 
 // catalogSource describes one texture of the render catalog (atlas rows of
@@ -45,6 +47,7 @@ type plainSource struct {
 	name, path, group, note string
 	pivot                   [2]float64
 	additive                bool
+	subtractive             bool
 }
 
 var plainSources = []plainSource{
@@ -55,6 +58,8 @@ var plainSources = []plainSource{
 		note: "speaker glow, widget 118×114"},
 	{name: "Pyllium", path: "prefabs/bms/stage/stage-psyllium.png", group: "stage", additive: true, pivot: [2]float64{0.5, 0},
 		note: "psyllium 166×138: right half glow, left half core; widgets 64×128, pivot bottom"},
+	{name: "sub_glow", path: "scene/gameplay/sub_glow.png", group: "hud", subtractive: true, pivot: [2]float64{0.5, 0.5},
+		note: "GameOverCover life vignette, UITexture 1334×1500"},
 }
 
 func addHUD(b *skinBuilder) error {
@@ -123,6 +128,10 @@ func addHUD(b *skinBuilder) error {
 		if ps.additive {
 			img = imgutil.AdditiveToAlpha(img)
 			note = strings.TrimPrefix(note+"; "+additiveNote, "; ")
+		}
+		if ps.subtractive {
+			img = imgutil.SubtractiveToAlpha(img)
+			note = strings.TrimPrefix(note+"; "+subtractiveNote, "; ")
 		}
 		if err := b.add(SpriteMeta{Name: ps.name, Kind: "sprite", Group: ps.group, Source: "APK " + ps.path,
 			Pivot: ps.pivot, Note: note}, img); err != nil {
