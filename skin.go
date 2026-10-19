@@ -28,8 +28,10 @@ type Source struct {
 	// CacheDir caches downloads (Bestdori files under <CacheDir>/bestdori);
 	// empty disables the disk cache.
 	CacheDir string
-	// Region is the Bestdori server region ("" = jp).
-	Region string
+	// Regions is the Bestdori server priority order (nil:
+	// jp, en, tw, cn, kr). Each bundle comes from the first server that has
+	// it, so server-exclusive assets are found too.
+	Regions []string
 	// Offline fails every download that is not already cached.
 	Offline bool
 	// HTTPClient is used for downloads (nil: a client with a 90 s timeout).
@@ -44,27 +46,13 @@ func (s Source) bestdori(ctx context.Context) *bestdori.Client {
 		cache = filepath.Join(s.CacheDir, "bestdori")
 	}
 	b := bestdori.New(cache)
-	if s.Region != "" {
-		b.Region = s.Region
-	}
+	b.Regions = s.Regions
 	if s.HTTPClient != nil {
 		b.HTTP = s.HTTPClient
 	}
 	b.Offline, b.Log, b.Ctx = s.Offline, s.Log, ctx
 	return b
 }
-
-// Variant selects the skin item.
-type Variant string
-
-const (
-	// Normal is the skin for ordinary levels.
-	Normal Variant = "normal"
-	// Habahiro is the separate item for #HABAHIRO levels: everything of the
-	// normal skin plus the HABAHIRO note/field/flash sprites (habahiro/<name>;
-	// see HABAHIRO.md).
-	Habahiro Variant = "habahiro"
-)
 
 // Options selects what to build. The zero value builds the default item.
 type Options struct {
@@ -77,18 +65,18 @@ type Options struct {
 	// skin00).
 	Field string
 	// Judge is the judge atlas bundle ingameskin/judgeskin/<id> ("" = skin00).
-	Judge   string
-	Variant Variant // "" = Normal
+	Judge string
 	// Startup includes the live startup direction art (startup_line_star,
 	// startup_title_base).
 	Startup bool
 	// SkillAdjust includes game_play_line_skill_adjust_effect.
 	SkillAdjust bool
-	// MaxTexture is the maximum texture side, a power of two (0 = 4096, or
-	// 8192 for Habahiro: full-resolution HABAHIRO notes need 4096×8192).
+	// MaxTexture is the maximum texture side of the ordinary item, a power of
+	// two (0 = 4096). The HABAHIRO item uses at least 8192: its
+	// full-resolution wide notes need 4096×8192.
 	MaxTexture int
-	// Name is the skin item name ("" = notgarupa-<note>-<field>, plus
-	// -habahiro for Habahiro).
+	// Name is the ordinary item name ("" = notgarupa-<note>-<field>); the
+	// HABAHIRO item is <Name>-habahiro.
 	Name   string
 	Source Source
 }
@@ -98,7 +86,10 @@ type Result struct {
 	// Item is the database item; its resource fields (Thumbnail, Data,
 	// Texture) are left empty for the caller to fill, e.g. with the server's
 	// repository URLs of Files().
-	Item      database.DatabaseSkinItem
+	Item database.DatabaseSkinItem
+	// Habahiro marks the item of #HABAHIRO levels, which the server forces
+	// for them as the original does.
+	Habahiro  bool
 	Data      resource.SkinData
 	Texture   []byte // PNG
 	Thumbnail []byte // PNG; nil when the thumbnail sprite is missing
@@ -166,8 +157,11 @@ func WriteSource(root string, results ...*Result) error {
 	return nil
 }
 
-// Generate builds the skin item.
-func Generate(ctx context.Context, opts Options) (*Result, error) {
+// Generate builds the two skin items NotGarupa uses, in this order: the
+// ordinary item and the item of #HABAHIRO levels (everything of the ordinary
+// item plus the HABAHIRO wide-note, lane-change field and flash sprites
+// habahiro/<name>; see HABAHIRO.md).
+func Generate(ctx context.Context, opts Options) ([]*Result, error) {
 	o := options{noteSkin: opts.Note, directionalSkin: opts.Directional, fieldSkin: opts.Field, judgeSkin: opts.Judge,
 		startup: opts.Startup, skillAdjust: opts.SkillAdjust}
 	for _, d := range []struct {
@@ -178,29 +172,28 @@ func Generate(ctx context.Context, opts Options) (*Result, error) {
 			*d.v = d.def
 		}
 	}
-	switch opts.Variant {
-	case "", Normal:
-	case Habahiro:
-		o.habahiro = true
-	default:
-		return nil, fmt.Errorf("unknown variant %q (normal, habahiro)", opts.Variant)
-	}
 	maxTexture := opts.MaxTexture
 	if maxTexture <= 0 {
 		maxTexture = 4096
-		if o.habahiro {
-			maxTexture = 8192
-		}
 	}
 	name := opts.Name
 	if name == "" {
 		name = fmt.Sprintf("notgarupa-%s-%s", o.noteSkin, o.fieldSkin)
-		if o.habahiro {
-			name += "-habahiro"
-		}
 	}
-
 	bd := opts.Source.bestdori(ctx)
+	normal, err := generate(bd, o, maxTexture, name)
+	if err != nil {
+		return nil, err
+	}
+	o.habahiro = true
+	habahiro, err := generate(bd, o, max(maxTexture, 8192), name+"-habahiro")
+	if err != nil {
+		return nil, fmt.Errorf("HABAHIRO item: %w", err)
+	}
+	return []*Result{normal, habahiro}, nil
+}
+
+func generate(bd *bestdori.Client, o options, maxTexture int, name string) (*Result, error) {
 	b := newSkinBuilder()
 	steps := []struct {
 		what string
@@ -299,6 +292,7 @@ func Generate(ctx context.Context, opts Options) (*Result, error) {
 			Tags:        []database.DatabaseTag{},
 			Description: packout.T(desc, desc, desc),
 		},
+		Habahiro:  o.habahiro,
 		Data:      data,
 		Texture:   texture,
 		Thumbnail: thumbnail,

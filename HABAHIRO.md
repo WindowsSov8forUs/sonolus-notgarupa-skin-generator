@@ -9,17 +9,12 @@
 
 方向键皮肤仍按玩家设置。判定皮肤 `judgeskin/habahiro` 与 skin00 逐字节相同，所以继续使用 `judge_*`。
 
-一个关卡只能选一个 skin 条目，所以 HABAHIRO 做成独立条目。它包含普通皮肤的全部精灵（名称与像素都不变），另外加上下文列出的 `habahiro/<原作名>` 精灵。
-
-```sh
-sonolus-notgarupa-skin-generator -variant habahiro [-skill-adjust] [-startup] [公共参数]
-```
+HABAHIRO 是 NotGarupa 的固定组成部分，生成器每次都会输出它，没有开关。一个关卡只能选一个 skin 条目，而原作对 `#HABAHIRO` 关卡强制使用 HABAHIRO 资源，所以它是同一个包里的第二个条目，由服务器为这类关卡强制选用。它包含普通皮肤的全部精灵（名称与像素都不变），另外加上下文列出的 `habahiro/<原作名>` 精灵。
 
 | 项 | 普通 | HABAHIRO |
 |---|---|---|
 | 条目名 | `notgarupa-skin00-skin00` | `notgarupa-skin00-skin00-habahiro` |
-| sonolus-pack 源 | `out/source` | `out/source-habahiro` |
-| 可加载的包 | `out/pack` | `out/pack-habahiro` |
+| sonolus-pack 源 / 可加载的包 | `out/source` / `out/pack`（两个条目在同一个包里） | 同左 |
 | 契约 | `contract.json` | `contract-habahiro.json`（另有顶层 `habahiro` 段，内容即本文的机器可读版） |
 | 纹理 | 2048×4096 | 4096×8192 |
 

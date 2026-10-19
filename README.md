@@ -18,16 +18,19 @@ go run ./cmd/sonolus-notgarupa-skin-generator [参数]   # 在本仓库中
 
 ```sh
 sonolus-notgarupa-skin-generator [-note skin00] [-directional directionalflickskin00] [-field skin00] [-judge skin00] \
-    [-variant normal|habahiro] [-startup] [-skill-adjust] [-max-texture 4096] [-name ...] [公共参数]
+    [-startup] [-skill-adjust] [-max-texture 4096] [-name ...] [-contract contract.json] [-contract-habahiro contract-habahiro.json] [公共参数]
 ```
 
 程序内置所需的 APK 资源，其余素材联网下载到 `-cache`（默认当前目录的 `.cache/`）。`-version` 输出版本号。
 
-- 输出：`out/source`（sonolus-pack 源）与 `out/pack`（可直接被服务器加载）。默认条目名 `notgarupa-<note>-<field>`。
-- `-variant habahiro`（旧写法 `-habahiro`）：生成独立的 HABAHIRO 条目 `notgarupa-<note>-<field>-habahiro`，供 `#HABAHIRO` 关卡使用。它包含普通皮肤的全部精灵，另加原作 HABAHIRO 宽音符图集、长条贴图、lane 变更后的场地和 lane 变更闪光，名称为 `habahiro/<原作名>`。默认输出到 `out/source-habahiro`、`out/pack-habahiro` 与 `contract-habahiro.json`，纹理 4096×8192，全部按原分辨率。精灵名规则与几何见 [HABAHIRO.md](HABAHIRO.md)。普通条目的输出不受影响。
+- 输出：`out/source`（sonolus-pack 源）与 `out/pack`（可直接被服务器加载），每次都包含 NotGarupa 的两个皮肤条目：
+  - `notgarupa-<note>-<field>`：普通关卡，契约 `contract.json`。
+  - `notgarupa-<note>-<field>-habahiro`：`#HABAHIRO` 关卡（原作对这类关卡强制使用 HABAHIRO 资源，服务器同样强制选用）。包含普通条目的全部精灵，另加原作 HABAHIRO 宽音符图集、长条贴图、lane 变更后的场地和 lane 变更闪光，名称为 `habahiro/<原作名>`，契约 `contract-habahiro.json`。精灵名规则与几何见 [HABAHIRO.md](HABAHIRO.md)。
+  
+  分成两个条目只是因为 HABAHIRO 条目的纹理是 4096×8192，普通关卡不必加载。
 - 着色变体以 `名称@RRGGBB[AA]` 命名，九宫格 / 三段切片以 `#L/#M/#R`、`#TL…#BR` 后缀命名，字形以 `sgm_<字号>_<颜色>_<字符>` 命名（2 倍分辨率）。
 - 加色混合的美术（舞台灯光、音箱发光等）已换算为普通 alpha 混合。只有舞台与通关美术会裁掉透明边。
-- 纹理：普通条目 2048×4096（全部内容放不进 2048²），HABAHIRO 条目 4096×8192。
+- 纹理：普通条目 2048×4096（全部内容放不进 2048²；`-max-texture` 为上限），HABAHIRO 条目 4096×8192（全部按原分辨率）。
 
 ## 作为 Go 库
 
@@ -36,26 +39,27 @@ sonolus-notgarupa-skin-generator [-note skin00] [-directional directionalflicksk
 ```go
 import skin "github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator"
 
-r, err := skin.Generate(ctx, skin.Options{
-	Variant: skin.Habahiro, // 零值 Options 即默认的普通皮肤
-	Source:  skin.Source{CacheDir: "cache/notgarupa", Region: "jp"},
-})
+results, err := skin.Generate(ctx, skin.Options{ // 零值 Options 即默认皮肤
+	Source: skin.Source{CacheDir: "cache/notgarupa"},
+}) // [普通条目, HABAHIRO 条目]，后者 Result.Habahiro 为 true
 ```
 
-- `Options` 的零值即命令行的默认值：`Note`、`Directional`、`Field`、`Judge`、`Variant`（`skin.Normal` / `skin.Habahiro`）、`Startup`、`SkillAdjust`、`MaxTexture`、`Name`。
-- `Source` 控制下载：`CacheDir`、`Region`、`Offline`、`HTTPClient`、`Log`；`Generate` 的 `ctx` 可取消下载。多个生成器可以共用同一个 `CacheDir`（缓存写入是原子的）。
-- 返回 `*skin.Result`：`Item`（sonolus-core-go 的 `database.DatabaseSkinItem`，资源字段留空）、Data（`resource.SkinData`）、Texture、Thumbnail（PNG）与 Contract（即 `contract.json` 的内容）。
+- `Options` 的零值即命令行的默认值：`Note`、`Directional`、`Field`、`Judge`、`Startup`、`SkillAdjust`、`MaxTexture`、`Name`（HABAHIRO 条目为 `<Name>-habahiro`）。
+- `Source` 控制下载：`CacheDir`、`Regions`（服务器优先级，默认 jp、en、tw、cn、kr）、`Offline`、`HTTPClient`、`Log`；`Generate` 的 `ctx` 可取消下载。多个生成器可以共用同一个 `CacheDir`（缓存写入是原子的）。
+- 返回 `[]*skin.Result`，每项：`Item`（sonolus-core-go 的 `database.DatabaseSkinItem`，资源字段留空）、Data（`resource.SkinData`）、Texture、Thumbnail（PNG）与 Contract（即 `contract.json` 的内容）。
 - `Result.Files()` 按 item.json 的字段名返回资源字节："thumbnail"、"data"（已 gzip 压缩）、"texture"。
 - `skin.WriteSource(dir, results...)` 把结果写成 sonolus-pack 源目录（命令行就是 `Generate` + `WriteSource` + sonolus-pack-go）。
 
 在 sonolus-server-go 中注册（作为依赖同样需要 `GOPRIVATE`）（资源字段填入仓库地址）：
 
 ```go
-files, err := r.Files()
-if err != nil { /* … */ }
-it := r.Item // database.DatabaseSkinItem，资源字段待填
-it.Thumbnail, it.Data, it.Texture = s.AddBytes(files["thumbnail"], ""), s.AddBytes(files["data"], ""), s.AddBytes(files["texture"], "")
-s.Skin.Items = append(s.Skin.Items, sonolusserver.SkinItemModel{DatabaseSkinItem: it})
+for _, r := range results {
+	files, err := r.Files()
+	if err != nil { /* … */ }
+	it := r.Item // database.DatabaseSkinItem，资源字段待填
+	it.Thumbnail, it.Data, it.Texture = s.AddBytes(files["thumbnail"], ""), s.AddBytes(files["data"], ""), s.AddBytes(files["texture"], "")
+	s.Skin.Items = append(s.Skin.Items, sonolusserver.SkinItemModel{DatabaseSkinItem: it})
+}
 ```
 
 ## 公共参数（命令行）
@@ -65,7 +69,7 @@ s.Skin.Items = append(s.Skin.Items, sonolusserver.SkinItemModel{DatabaseSkinItem
 | `-out` | `out/source` | 重新生成的 sonolus-pack 源目录 |
 | `-pack` | `out/pack` | 用 sonolus-pack-go 打包到该目录（空字符串则跳过） |
 | `-cache` | `.cache` | 下载缓存目录 |
-| `-region` | `jp` | Bestdori 服务器区域（jp、en、tw、cn、kr） |
+| `-regions` | `jp,en,tw,cn,kr` | Bestdori 服务器优先级。各服有独占素材，每个 bundle 取自第一个拥有它的服务器（该 bundle 的全部文件都来自同一服）；某服没有时记录在缓存中，`-offline` 重跑时选择相同的服务器 |
 | `-offline` | false | 只使用缓存中的下载 |
 | `-v` | false | 输出下载日志 |
 | `-version` | false | 输出版本号后退出 |
