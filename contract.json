@@ -1,0 +1,6237 @@
+{
+  "groups": {
+    "clear": 32,
+    "directional": 18,
+    "field": 2,
+    "hud": 177,
+    "judge": 8,
+    "lane": 8,
+    "note": 52,
+    "stage": 8,
+    "text": 49
+  },
+  "options": {
+    "directional": "directionalflickskin00",
+    "field": "skin00",
+    "habahiro": false,
+    "judge": "skin00",
+    "note": "skin00"
+  },
+  "skin": "notgarupa-skin00-skin00",
+  "sprites": [
+    {
+      "name": "AllPerfect_-",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_--A3BA440F58BA.png",
+      "w": 36,
+      "h": 15,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_A",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_A-128DBB295661.png",
+      "w": 126,
+      "h": 137,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_C",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_C-4E6E52DFD15A.png",
+      "w": 120,
+      "h": 138,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_E_1",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_E_1-C9BA0359B42B.png",
+      "w": 101,
+      "h": 133,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_F",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_F-414E7DD71C28.png",
+      "w": 100,
+      "h": 135,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_L",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_L-78BBF7C63D71.png",
+      "w": 90,
+      "h": 136,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_P",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_P-EE4423100630.png",
+      "w": 99,
+      "h": 135,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_R",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_R-412309338FC8.png",
+      "w": 100,
+      "h": 135,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_T",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_T-5618F22BF1EC.png",
+      "w": 117,
+      "h": 135,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_Thunder",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_Thunder-7B2A65ED8D4A.png",
+      "w": 95,
+      "h": 143,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_e_2",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_e_2-6904C32130BB.png",
+      "w": 39,
+      "h": 31,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_fu",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_fu-96000BD8DFBE.png",
+      "w": 39,
+      "h": 36,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_ku",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_ku-711F3EF6A5B1.png",
+      "w": 41,
+      "h": 37,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_o",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_o-D502DAE04E88.png",
+      "w": 41,
+      "h": 37,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_pa",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_pa-A7BBBE0FAEAA.png",
+      "w": 45,
+      "h": 38,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_ru",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_ru-27F859425593.png",
+      "w": 43,
+      "h": 37,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_star",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_star-7FD3FBF99A6E.png",
+      "w": 80,
+      "h": 79,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "AllPerfect_to",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/AllPerfect_to-F66DAA868FFA.png",
+      "w": 33,
+      "h": 38,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_B",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_B-21DE197D24C2.png",
+      "w": 106,
+      "h": 135,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_C",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_C-6604C59BBF04.png",
+      "w": 120,
+      "h": 139,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_F",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_F-F0202DE6EB77.png",
+      "w": 99,
+      "h": 137,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_L",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_L-001D2D7A72A3.png",
+      "w": 90,
+      "h": 137,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_M",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_M-8F2EB8EC8D8B.png",
+      "w": 151,
+      "h": 139,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_O",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_O-D5D3B618F2B5.png",
+      "w": 137,
+      "h": 139,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_U",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_U-55801FB5E0AB.png",
+      "w": 120,
+      "h": 139,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_bo",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_bo-748F555F4EB0.png",
+      "w": 56,
+      "h": 51,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_fu",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_fu-0E4B7C573B42.png",
+      "w": 52,
+      "h": 49,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_ko",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_ko-B515E2F47FC5.png",
+      "w": 52,
+      "h": 48,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_ru",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_ru-102D11889A10.png",
+      "w": 56,
+      "h": 50,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_star",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_star-C44B04E96491.png",
+      "w": 80,
+      "h": 79,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_thunder",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_thunder-237A4915F2CA.png",
+      "w": 96,
+      "h": 144,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FullCombo_un",
+      "kind": "sprite",
+      "group": "clear",
+      "source": "APK prefabs/bms/gameclear/FullCombo_un-ED49CDED2ADF.png",
+      "w": 54,
+      "h": 50,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "FlickNoteLine_l",
+      "kind": "texture",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00/FlickNoteLine_l.png",
+      "w": 10,
+      "h": 78,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "multiple-directional back line (LineRenderer, stretch, width = note scale × 0.75)"
+    },
+    {
+      "name": "FlickNoteLine_r",
+      "kind": "texture",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00/FlickNoteLine_r.png",
+      "w": 10,
+      "h": 78,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "multiple-directional back line (LineRenderer, stretch, width = note scale × 0.75)"
+    },
+    {
+      "name": "note_flick_l_0",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_l_1",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_l_2",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_l_3",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_l_4",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_l_5",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_l_6",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_0",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_1",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_2",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_3",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_4",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_5",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_r_6",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_top_l",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 138,
+      "h": 171,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_top_r",
+      "kind": "sprite",
+      "group": "directional",
+      "source": "bestdori ingameskin/noteskin/directionalflickskin00",
+      "w": 138,
+      "h": 170,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "bg_line_rhythm",
+      "kind": "texture",
+      "group": "field",
+      "source": "bestdori ingameskin/fieldskin/skin00/bg_line_rhythm.png",
+      "w": 1160,
+      "h": 610,
+      "pivot": [
+        0.5,
+        0
+      ],
+      "note": "UITexture 1160×610 UI units, pivot bottom, bottom edge on the judge line"
+    },
+    {
+      "name": "game_play_line",
+      "kind": "sprite",
+      "group": "field",
+      "source": "bestdori ingameskin/fieldskin/skin00",
+      "w": 1800,
+      "h": 38,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 69
+    },
+    {
+      "name": "additive/hp_meter",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-additive.png",
+      "w": 17,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "border": [
+        8,
+        8,
+        0,
+        0
+      ],
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
+    },
+    {
+      "name": "additive/hp_meter#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "additive/hp_meter",
+      "part": [
+        0,
+        0,
+        8,
+        26
+      ]
+    },
+    {
+      "name": "additive/hp_meter#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "additive/hp_meter",
+      "part": [
+        8,
+        0,
+        1,
+        26
+      ]
+    },
+    {
+      "name": "additive/hp_meter#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "additive/hp_meter",
+      "part": [
+        9,
+        0,
+        8,
+        26
+      ]
+    },
+    {
+      "name": "additive/hp_meter@5DFF0064",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of additive/hp_meter",
+      "w": 17,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "border": [
+        8,
+        8,
+        0,
+        0
+      ],
+      "tint": [
+        0.3655,
+        1,
+        0,
+        0.391
+      ],
+      "note": "second life gauge (life \u003e 1000), colour (0.3655,1,0,0.391)"
+    },
+    {
+      "name": "additive/hp_meter@5DFF0064#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "additive/hp_meter@5DFF0064",
+      "part": [
+        0,
+        0,
+        8,
+        26
+      ],
+      "tint": [
+        0.3655,
+        1,
+        0,
+        0.391
+      ]
+    },
+    {
+      "name": "additive/hp_meter@5DFF0064#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "additive/hp_meter@5DFF0064",
+      "part": [
+        8,
+        0,
+        1,
+        26
+      ],
+      "tint": [
+        0.3655,
+        1,
+        0,
+        0.391
+      ]
+    },
+    {
+      "name": "additive/hp_meter@5DFF0064#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "additive/hp_meter@5DFF0064",
+      "part": [
+        9,
+        0,
+        8,
+        26
+      ],
+      "tint": [
+        0.3655,
+        1,
+        0,
+        0.391
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 24,
+      "h": 24,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#B",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 12,
+      "h": 6,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        6,
+        18,
+        12,
+        6
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#BL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 6,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        0,
+        18,
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#BR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 6,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        18,
+        18,
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 12,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        0,
+        6,
+        6,
+        12
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 12,
+      "h": 12,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        6,
+        6,
+        12,
+        12
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 12,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        18,
+        6,
+        6,
+        12
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#T",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 12,
+      "h": 6,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        6,
+        0,
+        12,
+        6
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#TL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 6,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        0,
+        0,
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bg_base_r6_inside_rhythm#TR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 6,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_base_r6_inside_rhythm",
+      "part": [
+        18,
+        0,
+        6,
+        6
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 18,
+      "h": 18,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#B",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 2,
+      "h": 8,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        8,
+        10,
+        2,
+        8
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#BL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 8,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        0,
+        10,
+        8,
+        8
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#BR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 8,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        10,
+        10,
+        8,
+        8
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 2,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        0,
+        8,
+        8,
+        2
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 2,
+      "h": 2,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        8,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 2,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        10,
+        8,
+        8,
+        2
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#T",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 2,
+      "h": 8,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        8,
+        0,
+        2,
+        8
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#TL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 8,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        0,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "name": "bg_gauge_score_multi#TR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 8,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_gauge_score_multi",
+      "part": [
+        10,
+        0,
+        8,
+        8
+      ]
+    },
+    {
+      "name": "bg_health",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 186,
+      "h": 62,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        39,
+        143,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bg_health#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 39,
+      "h": 62,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_health",
+      "part": [
+        0,
+        0,
+        39,
+        62
+      ]
+    },
+    {
+      "name": "bg_health#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 62,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_health",
+      "part": [
+        39,
+        0,
+        4,
+        62
+      ]
+    },
+    {
+      "name": "bg_health#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 143,
+      "h": 62,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_health",
+      "part": [
+        43,
+        0,
+        143,
+        62
+      ]
+    },
+    {
+      "name": "bg_no_health",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 131,
+      "h": 69,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        50,
+        50,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bg_no_health#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 50,
+      "h": 69,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_no_health",
+      "part": [
+        0,
+        0,
+        50,
+        69
+      ]
+    },
+    {
+      "name": "bg_no_health#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 31,
+      "h": 69,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_no_health",
+      "part": [
+        50,
+        0,
+        31,
+        69
+      ]
+    },
+    {
+      "name": "bg_no_health#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 50,
+      "h": 69,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "bg_no_health",
+      "part": [
+        81,
+        0,
+        50,
+        69
+      ]
+    },
+    {
+      "name": "btn_ingame_time_back",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 104,
+      "h": 104,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "btn_ingame_time_forward",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 104,
+      "h": 104,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "button_pause",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "combo",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 150,
+      "h": 42,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "combo_AP",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 150,
+      "h": 42,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "effect_health_caution_inside",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/ui-additive-effect/ui-additive-effect.png",
+      "w": 16,
+      "h": 14,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "border": [
+        6,
+        6,
+        5,
+        5
+      ],
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
+    },
+    {
+      "name": "effect_health_caution_inside#B",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        6,
+        9,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#BL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        0,
+        9,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#BR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        10,
+        9,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 4,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        0,
+        5,
+        6,
+        4
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 4,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        6,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 4,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        10,
+        5,
+        6,
+        4
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#T",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        6,
+        0,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#TL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        0,
+        0,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "effect_health_caution_inside#TR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 6,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_inside",
+      "part": [
+        10,
+        0,
+        6,
+        5
+      ]
+    },
+    {
+      "name": "effect_health_caution_outline",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/ui-additive-effect/ui-additive-effect.png",
+      "w": 180,
+      "h": 83,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "border": [
+        15,
+        158,
+        0,
+        0
+      ],
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
+    },
+    {
+      "name": "effect_health_caution_outline#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 15,
+      "h": 83,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_outline",
+      "part": [
+        0,
+        0,
+        15,
+        83
+      ]
+    },
+    {
+      "name": "effect_health_caution_outline#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 7,
+      "h": 83,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_outline",
+      "part": [
+        15,
+        0,
+        7,
+        83
+      ]
+    },
+    {
+      "name": "effect_health_caution_outline#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 158,
+      "h": 83,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "effect_health_caution_outline",
+      "part": [
+        22,
+        0,
+        158,
+        83
+      ]
+    },
+    {
+      "name": "gauge_base_score",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 236,
+      "h": 82,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        216,
+        16,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "gauge_base_score#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 216,
+      "h": 82,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "gauge_base_score",
+      "part": [
+        0,
+        0,
+        216,
+        82
+      ]
+    },
+    {
+      "name": "gauge_base_score#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 82,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "gauge_base_score",
+      "part": [
+        216,
+        0,
+        4,
+        82
+      ]
+    },
+    {
+      "name": "gauge_base_score#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 16,
+      "h": 82,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "gauge_base_score",
+      "part": [
+        220,
+        0,
+        16,
+        82
+      ]
+    },
+    {
+      "name": "hp_meter",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 17,
+      "h": 26,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        4,
+        4,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "hp_meter#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter",
+      "part": [
+        0,
+        0,
+        4,
+        26
+      ]
+    },
+    {
+      "name": "hp_meter#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 9,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter",
+      "part": [
+        4,
+        0,
+        9,
+        26
+      ]
+    },
+    {
+      "name": "hp_meter#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter",
+      "part": [
+        13,
+        0,
+        4,
+        26
+      ]
+    },
+    {
+      "name": "hp_meter@6EFF69",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of hp_meter",
+      "w": 17,
+      "h": 26,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        4,
+        4,
+        0,
+        0
+      ],
+      "tint": [
+        0.43137254901960786,
+        1,
+        0.4117647058823529,
+        1
+      ],
+      "note": "life fill, life ratio \u003e 0.2 (#6EFF69)"
+    },
+    {
+      "name": "hp_meter@6EFF69#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter@6EFF69",
+      "part": [
+        0,
+        0,
+        4,
+        26
+      ],
+      "tint": [
+        0.43137254901960786,
+        1,
+        0.4117647058823529,
+        1
+      ]
+    },
+    {
+      "name": "hp_meter@6EFF69#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 9,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter@6EFF69",
+      "part": [
+        4,
+        0,
+        9,
+        26
+      ],
+      "tint": [
+        0.43137254901960786,
+        1,
+        0.4117647058823529,
+        1
+      ]
+    },
+    {
+      "name": "hp_meter@6EFF69#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter@6EFF69",
+      "part": [
+        13,
+        0,
+        4,
+        26
+      ],
+      "tint": [
+        0.43137254901960786,
+        1,
+        0.4117647058823529,
+        1
+      ]
+    },
+    {
+      "name": "hp_meter@FF9999",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of hp_meter",
+      "w": 17,
+      "h": 26,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        4,
+        4,
+        0,
+        0
+      ],
+      "tint": [
+        1,
+        0.6,
+        0.6,
+        1
+      ],
+      "note": "life fill, life ratio ≤ 0.2"
+    },
+    {
+      "name": "hp_meter@FF9999#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter@FF9999",
+      "part": [
+        0,
+        0,
+        4,
+        26
+      ],
+      "tint": [
+        1,
+        0.6,
+        0.6,
+        1
+      ]
+    },
+    {
+      "name": "hp_meter@FF9999#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 9,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter@FF9999",
+      "part": [
+        4,
+        0,
+        9,
+        26
+      ],
+      "tint": [
+        1,
+        0.6,
+        0.6,
+        1
+      ]
+    },
+    {
+      "name": "hp_meter@FF9999#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 26,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "hp_meter@FF9999",
+      "part": [
+        13,
+        0,
+        4,
+        26
+      ],
+      "tint": [
+        1,
+        0.6,
+        0.6,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_0",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        2,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_0#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 2,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_0",
+      "part": [
+        0,
+        0,
+        2,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_0#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 43,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_0",
+      "part": [
+        2,
+        0,
+        43,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_0#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 2,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_0",
+      "part": [
+        45,
+        0,
+        2,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_1",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        8,
+        9,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_1#B",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 30,
+      "h": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        8,
+        69,
+        30,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_1#BL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        0,
+        69,
+        8,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_1#BR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 9,
+      "h": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        38,
+        69,
+        9,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_1#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 68,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        0,
+        1,
+        8,
+        68
+      ]
+    },
+    {
+      "name": "icon_number_1#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 30,
+      "h": 68,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        8,
+        1,
+        30,
+        68
+      ]
+    },
+    {
+      "name": "icon_number_1#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 9,
+      "h": 68,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        38,
+        1,
+        9,
+        68
+      ]
+    },
+    {
+      "name": "icon_number_1#T",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 30,
+      "h": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        8,
+        0,
+        30,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_1#TL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 8,
+      "h": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        0,
+        0,
+        8,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_1#TR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 9,
+      "h": 1,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_1",
+      "part": [
+        38,
+        0,
+        9,
+        1
+      ]
+    },
+    {
+      "name": "icon_number_2",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_2#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_2",
+      "part": [
+        0,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_2#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 45,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_2",
+      "part": [
+        1,
+        0,
+        45,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_2#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_2",
+      "part": [
+        46,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_3",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_3#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_3",
+      "part": [
+        0,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_3#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 45,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_3",
+      "part": [
+        1,
+        0,
+        45,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_3#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_3",
+      "part": [
+        46,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_4",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_5",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_5#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 46,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_5",
+      "part": [
+        0,
+        0,
+        46,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_5#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_5",
+      "part": [
+        46,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_6",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_6#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 46,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_6",
+      "part": [
+        0,
+        0,
+        46,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_6#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_6",
+      "part": [
+        46,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_7",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_7#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_7",
+      "part": [
+        0,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_7#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 45,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_7",
+      "part": [
+        1,
+        0,
+        45,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_7#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_7",
+      "part": [
+        46,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_8",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_8#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_8",
+      "part": [
+        0,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_8#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 46,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_8",
+      "part": [
+        1,
+        0,
+        46,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_9",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        2,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "icon_number_9#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 2,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_9",
+      "part": [
+        0,
+        0,
+        2,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_9#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 44,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_9",
+      "part": [
+        2,
+        0,
+        44,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_9#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 1,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "icon_number_9",
+      "part": [
+        46,
+        0,
+        1,
+        70
+      ]
+    },
+    {
+      "name": "icon_number_big_0",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_1",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_2",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_3",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_4",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_5",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_6",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_7",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_8",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_9",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_0",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_1",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_2",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_3",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_4",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_5",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_6",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_7",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_8",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_big_AP_9",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/iconcombonumber/combo-number.png",
+      "w": 82,
+      "h": 116,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "icon_number_plus",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 47,
+      "h": 70,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "label_round_white",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 60,
+      "h": 40,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        25,
+        25,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "label_round_white#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 25,
+      "h": 40,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "label_round_white",
+      "part": [
+        0,
+        0,
+        25,
+        40
+      ]
+    },
+    {
+      "name": "label_round_white#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 10,
+      "h": 40,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "label_round_white",
+      "part": [
+        25,
+        0,
+        10,
+        40
+      ]
+    },
+    {
+      "name": "label_round_white#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 25,
+      "h": 40,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "label_round_white",
+      "part": [
+        35,
+        0,
+        25,
+        40
+      ]
+    },
+    {
+      "name": "label_round_white@FF3B72",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of label_round_white",
+      "w": 60,
+      "h": 40,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        25,
+        25,
+        0,
+        0
+      ],
+      "tint": [
+        1,
+        0.23137254901960785,
+        0.4470588235294118,
+        1
+      ],
+      "note": "Auto Live caption pill (#FF3B72)"
+    },
+    {
+      "name": "label_round_white@FF3B72#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 25,
+      "h": 40,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "label_round_white@FF3B72",
+      "part": [
+        0,
+        0,
+        25,
+        40
+      ],
+      "tint": [
+        1,
+        0.23137254901960785,
+        0.4470588235294118,
+        1
+      ]
+    },
+    {
+      "name": "label_round_white@FF3B72#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 10,
+      "h": 40,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "label_round_white@FF3B72",
+      "part": [
+        25,
+        0,
+        10,
+        40
+      ],
+      "tint": [
+        1,
+        0.23137254901960785,
+        0.4470588235294118,
+        1
+      ]
+    },
+    {
+      "name": "label_round_white@FF3B72#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 25,
+      "h": 40,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "label_round_white@FF3B72",
+      "part": [
+        35,
+        0,
+        25,
+        40
+      ],
+      "tint": [
+        1,
+        0.23137254901960785,
+        0.4470588235294118,
+        1
+      ]
+    },
+    {
+      "name": "level_mark",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/uicommon/ui-common.png (128,4,8,5)",
+      "w": 8,
+      "h": 5,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "rank separator, widget 8×6"
+    },
+    {
+      "name": "point_charactor_shadow",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 211,
+      "h": 50,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "score_meter_blue",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 40,
+      "h": 22,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_blue#B",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 32,
+      "h": 3,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        4,
+        19,
+        32,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_blue#BL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 3,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        0,
+        19,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_blue#BR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 3,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        36,
+        19,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_blue#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 16,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        0,
+        3,
+        4,
+        16
+      ]
+    },
+    {
+      "name": "score_meter_blue#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 32,
+      "h": 16,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        4,
+        3,
+        32,
+        16
+      ]
+    },
+    {
+      "name": "score_meter_blue#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 16,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        36,
+        3,
+        4,
+        16
+      ]
+    },
+    {
+      "name": "score_meter_blue#T",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 32,
+      "h": 3,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        4,
+        0,
+        32,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_blue#TL",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 3,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        0,
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_blue#TR",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 4,
+      "h": 3,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_blue",
+      "part": [
+        36,
+        0,
+        4,
+        3
+      ]
+    },
+    {
+      "name": "score_meter_green",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 40,
+      "h": 22,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        5,
+        5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "score_meter_green#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 5,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_green",
+      "part": [
+        0,
+        0,
+        5,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_green#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 30,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_green",
+      "part": [
+        5,
+        0,
+        30,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_green#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 5,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_green",
+      "part": [
+        35,
+        0,
+        5,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_orange",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 40,
+      "h": 22,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        5,
+        5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "score_meter_orange#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 5,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_orange",
+      "part": [
+        0,
+        0,
+        5,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_orange#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 30,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_orange",
+      "part": [
+        5,
+        0,
+        30,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_orange#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 5,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_orange",
+      "part": [
+        35,
+        0,
+        5,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_pink",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 40,
+      "h": 22,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "border": [
+        5,
+        5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "score_meter_pink#L",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 5,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_pink",
+      "part": [
+        0,
+        0,
+        5,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_pink#M",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 30,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_pink",
+      "part": [
+        5,
+        0,
+        30,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_pink#R",
+      "kind": "slice",
+      "group": "hud",
+      "source": "",
+      "w": 5,
+      "h": 22,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "score_meter_pink",
+      "part": [
+        35,
+        0,
+        5,
+        22
+      ]
+    },
+    {
+      "name": "score_meter_s",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK atlas/bms/ui/rhythmgameui/rhythm-game-ui.png",
+      "w": 662,
+      "h": 22,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "ss_kira",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK prefabs/bms/rhythmgamegauge/score/high-rank-kira.png",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "ss_kira@D7FBFF",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        0.8443,
+        0.9838,
+        1,
+        1
+      ],
+      "note": "SS kira_2"
+    },
+    {
+      "name": "ss_kira@E6F6FF",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        0.9009,
+        0.9644,
+        1,
+        1
+      ],
+      "note": "SS kira_6"
+    },
+    {
+      "name": "ss_kira@ECFFD3",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        0.9242,
+        1,
+        0.8255,
+        1
+      ],
+      "note": "SS kira_3"
+    },
+    {
+      "name": "ss_kira@F1FFE6DC",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        0.9439,
+        1,
+        0.9009,
+        0.8627
+      ],
+      "note": "SS kira_7"
+    },
+    {
+      "name": "ss_kira@FDE3FF",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        0.9923,
+        0.8915,
+        1,
+        1
+      ],
+      "note": "SS kira_5"
+    },
+    {
+      "name": "ss_kira@FFE8FBDC",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        1,
+        0.9104,
+        0.9847,
+        0.8627
+      ],
+      "note": "SS kira_1"
+    },
+    {
+      "name": "ss_kira@FFEED7",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        1,
+        0.9343,
+        0.8443,
+        1
+      ],
+      "note": "SS kira_8"
+    },
+    {
+      "name": "ss_kira@FFFFFFDC",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_kira",
+      "w": 64,
+      "h": 64,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        1,
+        1,
+        1,
+        0.8627
+      ],
+      "note": "SS kira_4"
+    },
+    {
+      "name": "ss_overlay",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK prefabs/bms/rhythmgamegauge/score/high-rank-overlay.png",
+      "w": 64,
+      "h": 32,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "ss_overlay@FFDDED",
+      "kind": "tint",
+      "group": "hud",
+      "source": "tint of ss_overlay",
+      "w": 64,
+      "h": 32,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100,
+      "tint": [
+        1,
+        0.8667,
+        0.9294,
+        1
+      ],
+      "note": "SS gauge Flash"
+    },
+    {
+      "name": "sss_star_long",
+      "kind": "sprite",
+      "group": "hud",
+      "source": "APK prefabs/bms/rhythmgamegauge/score/high-rank-long-star.png",
+      "w": 420,
+      "h": 24,
+      "pivot": [
+        0,
+        1
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "judge_auto",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 205,
+      "h": 79,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_bad",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 148,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_fast",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 143,
+      "h": 30,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_good",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 219,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_great",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 225,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_miss",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 166,
+      "h": 70,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_perfect",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 287,
+      "h": 79,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "judge_slow",
+      "kind": "sprite",
+      "group": "judge",
+      "source": "bestdori ingameskin/judgeskin/skin00",
+      "w": 143,
+      "h": 30,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "NGUI sprite; widget size = sprite size (see contract)"
+    },
+    {
+      "name": "NoteLaneEffect_1",
+      "kind": "sprite",
+      "group": "lane",
+      "source": "APK atlas/bms/ui/tap-lane-effect/tap-lane-effect-1.png",
+      "w": 467,
+      "h": 500,
+      "pivot": [
+        0.1711825579404831,
+        0
+      ],
+      "ppu": 69
+    },
+    {
+      "name": "NoteLaneEffect_2",
+      "kind": "sprite",
+      "group": "lane",
+      "source": "APK atlas/bms/ui/tap-lane-effect/tap-lane-effect-2.png",
+      "w": 342,
+      "h": 500,
+      "pivot": [
+        0.23051762580871582,
+        0
+      ],
+      "ppu": 69
+    },
+    {
+      "name": "NoteLaneEffect_3",
+      "kind": "sprite",
+      "group": "lane",
+      "source": "APK atlas/bms/ui/tap-lane-effect/tap-lane-effect-3.png",
+      "w": 218,
+      "h": 500,
+      "pivot": [
+        0.3616914451122284,
+        0
+      ],
+      "ppu": 69
+    },
+    {
+      "name": "NoteLaneEffect_4",
+      "kind": "sprite",
+      "group": "lane",
+      "source": "APK atlas/bms/ui/tap-lane-effect/tap-lane-effect-4.png",
+      "w": 154,
+      "h": 500,
+      "pivot": [
+        0.5,
+        0
+      ],
+      "ppu": 69
+    },
+    {
+      "name": "sudden_line",
+      "kind": "sprite",
+      "group": "lane",
+      "source": "APK prefabs/bms/sudden/sudden-line.png",
+      "w": 120,
+      "h": 30,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "border": [
+        26,
+        26,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "sudden_line#L",
+      "kind": "slice",
+      "group": "lane",
+      "source": "",
+      "w": 26,
+      "h": 30,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "sudden_line",
+      "part": [
+        0,
+        0,
+        26,
+        30
+      ]
+    },
+    {
+      "name": "sudden_line#M",
+      "kind": "slice",
+      "group": "lane",
+      "source": "",
+      "w": 68,
+      "h": 30,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "sudden_line",
+      "part": [
+        26,
+        0,
+        68,
+        30
+      ]
+    },
+    {
+      "name": "sudden_line#R",
+      "kind": "slice",
+      "group": "lane",
+      "source": "",
+      "w": 26,
+      "h": 30,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "sudden_line",
+      "part": [
+        94,
+        0,
+        26,
+        30
+      ]
+    },
+    {
+      "name": "longNoteLine",
+      "kind": "texture",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00/longNoteLine.png",
+      "w": 146,
+      "h": 205,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "Long / straight Slide body; stretched once over each segment, v=0 at the earlier node"
+    },
+    {
+      "name": "longNoteLine2",
+      "kind": "texture",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00/longNoteLine2.png",
+      "w": 146,
+      "h": 205,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "note": "body of a Slide that has a hidden node; stretched once over each segment, v=0 at the earlier node"
+    },
+    {
+      "name": "longNoteLine2@E6E6E6",
+      "kind": "tint",
+      "group": "note",
+      "source": "tint of longNoteLine2",
+      "w": 146,
+      "h": 205,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.9,
+        0.9,
+        0.9,
+        1
+      ],
+      "note": "vertex RGB 0.9 of an activated body baked in; draw with alpha 0.8"
+    },
+    {
+      "name": "longNoteLine@E6E6E6",
+      "kind": "tint",
+      "group": "note",
+      "source": "tint of longNoteLine",
+      "w": 146,
+      "h": 205,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "tint": [
+        0.9,
+        0.9,
+        0.9,
+        1
+      ],
+      "note": "vertex RGB 0.9 of an activated body baked in; draw with alpha 0.8"
+    },
+    {
+      "name": "note_flick_0",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_1",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_2",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_3",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_4",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_5",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_6",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_flick_top",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 171,
+      "h": 138,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_0",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_1",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_2",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_3",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_4",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_5",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_6",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_long_flash_0",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_long_flash_1",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_long_flash_2",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_long_flash_3",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_long_flash_4",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_long_flash_5",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_long_flash_6",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100,
+      "note": "additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels); the original tints RGB 0.2→0.6→0.2, draw with that value as alpha"
+    },
+    {
+      "name": "note_normal_0",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_1",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_0",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_1",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_2",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_3",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_4",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_5",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_16_6",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_2",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_3",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_4",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_5",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_normal_6",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_0",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_1",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_2",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_3",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_4",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_5",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_skill_6",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "note_slide_among",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 308,
+      "h": 120,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 100
+    },
+    {
+      "name": "simultaneous_line",
+      "kind": "sprite",
+      "group": "note",
+      "source": "bestdori ingameskin/noteskin/skin00",
+      "w": 10,
+      "h": 27,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "ppu": 66,
+      "border": [
+        3,
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "simultaneous_line#L",
+      "kind": "slice",
+      "group": "note",
+      "source": "",
+      "w": 3,
+      "h": 27,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "simultaneous_line",
+      "part": [
+        0,
+        0,
+        3,
+        27
+      ]
+    },
+    {
+      "name": "simultaneous_line#M",
+      "kind": "slice",
+      "group": "note",
+      "source": "",
+      "w": 4,
+      "h": 27,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "simultaneous_line",
+      "part": [
+        3,
+        0,
+        4,
+        27
+      ]
+    },
+    {
+      "name": "simultaneous_line#R",
+      "kind": "slice",
+      "group": "note",
+      "source": "",
+      "w": 3,
+      "h": 27,
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "of": "simultaneous_line",
+      "part": [
+        7,
+        0,
+        3,
+        27
+      ]
+    },
+    {
+      "name": "Pyllium",
+      "kind": "sprite",
+      "group": "stage",
+      "source": "APK prefabs/bms/stage/stage-psyllium.png",
+      "w": 166,
+      "h": 138,
+      "pivot": [
+        0.5,
+        0
+      ],
+      "note": "psyllium 166×138: right half glow, left half core; widgets 64×128, pivot bottom; additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
+    },
+    {
+      "name": "Pyllium@BFEEF0",
+      "kind": "tint",
+      "group": "stage",
+      "source": "tint of Pyllium",
+      "w": 166,
+      "h": 138,
+      "pivot": [
+        0.5,
+        0
+      ],
+      "tint": [
+        0.7490196078431373,
+        0.9333333333333333,
+        0.9411764705882353,
+        1
+      ],
+      "note": "psyllium default colour (191,238,240)"
+    },
+    {
+      "name": "Pyllium@C8C8C8",
+      "kind": "tint",
+      "group": "stage",
+      "source": "tint of Pyllium",
+      "w": 166,
+      "h": 138,
+      "pivot": [
+        0.5,
+        0
+      ],
+      "tint": [
+        0.7843137254901961,
+        0.7843137254901961,
+        0.7843137254901961,
+        1
+      ],
+      "note": "psyllium core colour (200,200,200)"
+    },
+    {
+      "name": "Tex_miniShine",
+      "kind": "sprite",
+      "group": "stage",
+      "source": "APK prefabs/bms/stage/stage-light.png",
+      "w": 122,
+      "h": 121,
+      "pivot": [
+        0.47540983606557374,
+        0.5041322314049587
+      ],
+      "trim": [
+        6,
+        4,
+        0,
+        3
+      ],
+      "full": [
+        128,
+        128
+      ],
+      "note": "stage light (light_color ≈180² and light_white ≈99.7² UI units); additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
+    },
+    {
+      "name": "Tex_miniShine@0037FF",
+      "kind": "tint",
+      "group": "stage",
+      "source": "tint of Tex_miniShine",
+      "w": 122,
+      "h": 121,
+      "pivot": [
+        0.47540983606557374,
+        0.5041322314049587
+      ],
+      "tint": [
+        0,
+        0.21568627450980393,
+        1,
+        1
+      ],
+      "trim": [
+        6,
+        4,
+        0,
+        3
+      ],
+      "full": [
+        128,
+        128
+      ],
+      "note": "stage light colour table: blue (0,55,255)"
+    },
+    {
+      "name": "Tex_miniShine@D5FFFF",
+      "kind": "tint",
+      "group": "stage",
+      "source": "tint of Tex_miniShine",
+      "w": 122,
+      "h": 121,
+      "pivot": [
+        0.47540983606557374,
+        0.5041322314049587
+      ],
+      "tint": [
+        0.8352941176470589,
+        1,
+        1,
+        1
+      ],
+      "trim": [
+        6,
+        4,
+        0,
+        3
+      ],
+      "full": [
+        128,
+        128
+      ],
+      "note": "stage light colour table: light blue (213,255,255)"
+    },
+    {
+      "name": "Tex_speaker",
+      "kind": "sprite",
+      "group": "stage",
+      "source": "APK prefabs/bms/stage/stage-speaker.png",
+      "w": 187,
+      "h": 255,
+      "pivot": [
+        0.5,
+        0.5019607843137255
+      ],
+      "trim": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "full": [
+        187,
+        256
+      ],
+      "note": "speaker, widget 188×256"
+    },
+    {
+      "name": "speaker_effect",
+      "kind": "sprite",
+      "group": "stage",
+      "source": "APK prefabs/bms/stage/stage-speaker-glow.png",
+      "w": 106,
+      "h": 106,
+      "pivot": [
+        0.5188679245283019,
+        0.5188679245283019
+      ],
+      "trim": [
+        4,
+        6,
+        8,
+        2
+      ],
+      "full": [
+        118,
+        114
+      ],
+      "note": "speaker glow, widget 118×114; additive art converted for normal alpha blending: alpha = max(rgb·a), rgb = rgb·a/alpha (matches the additive look over dark pixels)"
+    },
+    {
+      "name": "sgm_12_FFFFFF_A",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 11,
+      "h": 13,
+      "pivot": [
+        0.045454545454545456,
+        0.12036434612882238
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 12,
+        "advance": 9.7734375,
+        "ascent": 10.5625,
+        "descent": 1.4453125,
+        "originX": 0.5,
+        "text": "A"
+      },
+      "scale": 2,
+      "note": "score rank letters (SS = two S); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_12_FFFFFF_B",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 11,
+      "h": 13,
+      "pivot": [
+        0.047619047619047616,
+        0.12036434612882238
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 12,
+        "advance": 9.109375,
+        "ascent": 10.5625,
+        "descent": 1.4453125,
+        "originX": 0.5,
+        "text": "B"
+      },
+      "scale": 2,
+      "note": "score rank letters (SS = two S); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_12_FFFFFF_C",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 11,
+      "h": 13,
+      "pivot": [
+        0.045454545454545456,
+        0.12036434612882238
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 12,
+        "advance": 9.7734375,
+        "ascent": 10.5625,
+        "descent": 1.4453125,
+        "originX": 0.5,
+        "text": "C"
+      },
+      "scale": 2,
+      "note": "score rank letters (SS = two S); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_12_FFFFFF_S",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 11,
+      "h": 13,
+      "pivot": [
+        0.047619047619047616,
+        0.12036434612882238
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 12,
+        "advance": 9.109375,
+        "ascent": 10.5625,
+        "descent": 1.4453125,
+        "originX": 0.5,
+        "text": "S"
+      },
+      "scale": 2,
+      "note": "score rank letters (SS = two S); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_/",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 10,
+      "h": 18,
+      "pivot": [
+        0.05,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 9,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "/"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_0",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "0"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_1",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "1"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_2",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "2"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_3",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "3"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_4",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "4"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_5",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "5"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_6",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "6"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_7",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "7"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_8",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "8"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_00C000_9",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "9"
+      },
+      "scale": 2,
+      "note": "life value (positive) and maximum; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_505050_/",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 10,
+      "h": 18,
+      "pivot": [
+        0.05,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 9,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "/"
+      },
+      "scale": 2,
+      "note": "life separator; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_0",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "0"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_1",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "1"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_2",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "2"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_3",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "3"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_4",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "4"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_5",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "5"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_6",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "6"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_7",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "7"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_8",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "8"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_18_FE2349_9",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 15,
+      "h": 18,
+      "pivot": [
+        0.03333333333333333,
+        0.12022569444444445
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 18,
+        "advance": 13.65625,
+        "ascent": 15.8359375,
+        "descent": 2.1640625,
+        "originX": 0.5,
+        "text": "9"
+      },
+      "scale": 2,
+      "note": "life value at zero; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_0",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "0"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_1",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "1"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_2",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "2"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_3",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "3"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_4",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "4"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_5",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "5"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_6",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "6"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_7",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "7"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_8",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "8"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_BEBEBE_9",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "9"
+      },
+      "scale": 2,
+      "note": "score leading zeros (advance + spacingX 1); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_0",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "0"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_1",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "1"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_2",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "2"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_3",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "3"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_4",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "4"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_5",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "5"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_6",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "6"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_7",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "7"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_8",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "8"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgm_28_FF3B72_9",
+      "kind": "glyph",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 23,
+      "h": 29,
+      "pivot": [
+        0.022222222222222223,
+        0.1202231520223152
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 28,
+        "advance": 21.25,
+        "ascent": 24.640625,
+        "descent": 3.3671875,
+        "originX": 0.5,
+        "text": "9"
+      },
+      "scale": 2,
+      "note": "score significant digits; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgmtext_22_FF0000_gameover_1",
+      "kind": "text",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 120,
+      "h": 22,
+      "pivot": [
+        0.0041841004184100415,
+        0.12002840909090909
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 22,
+        "advance": 118.140625,
+        "ascent": 19.359375,
+        "descent": 2.640625,
+        "originX": 0.5,
+        "text": "ライフゼロ!"
+      },
+      "scale": 2,
+      "note": "life-zero message line 1 (spacingY 2); pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgmtext_22_FF0000_gameover_2",
+      "kind": "text",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 195,
+      "h": 22,
+      "pivot": [
+        0.002564102564102564,
+        0.12002840909090909
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 22,
+        "advance": 193.90625,
+        "ascent": 19.359375,
+        "descent": 2.640625,
+        "originX": 0.5,
+        "text": "獲得スコアDOWN!"
+      },
+      "scale": 2,
+      "note": "life-zero message line 2; pivot = pen origin on the baseline"
+    },
+    {
+      "name": "sgmtext_24_FFFFFF_autolive",
+      "kind": "text",
+      "group": "text",
+      "source": "APK fonts/sgm/rank-label-font.ttf (sgm, TT-Shin Go)",
+      "w": 140,
+      "h": 24,
+      "pivot": [
+        0.0035714285714285713,
+        0.1201171875
+      ],
+      "glyph": {
+        "font": "sgm",
+        "size": 24,
+        "advance": 138,
+        "ascent": 21.1171875,
+        "descent": 2.8828125,
+        "originX": 0.5,
+        "text": "オートライブ",
+        "spacingX": -1
+      },
+      "scale": 2,
+      "note": "Auto Live caption; pivot = pen origin on the baseline"
+    }
+  ],
+  "texture": [
+    2048,
+    4096
+  ]
+}
