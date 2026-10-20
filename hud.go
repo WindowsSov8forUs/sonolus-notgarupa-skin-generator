@@ -167,6 +167,7 @@ func addTints(b *skinBuilder) error {
 		{"Tex_miniShine", [4]float64{213.0 / 255, 1, 1, 1}, "stage light colour table: light blue (213,255,255)"},
 		{"Pyllium", [4]float64{191.0 / 255, 238.0 / 255, 240.0 / 255, 1}, "psyllium default colour (191,238,240)"},
 		{"Pyllium", [4]float64{200.0 / 255, 200.0 / 255, 200.0 / 255, 1}, "psyllium core colour (200,200,200)"},
+		{"point_charactor_shadow", [4]float64{0, 0, 0, 1}, "BgCover of the opening (point_charactor_shadow tinted black)"},
 	}
 	for _, t := range tints {
 		if _, err := b.addTint(t.name, t.c, t.note); err != nil {
