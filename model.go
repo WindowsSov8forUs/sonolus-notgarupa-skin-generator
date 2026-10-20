@@ -192,10 +192,10 @@ func (b *skinBuilder) sortedMeta() []SpriteMeta {
 // textures (not slices, glyphs or sliced sprites) and fixes up the pivot.
 func (b *skinBuilder) trimTransparent() {
 	for _, s := range b.sprites {
-		// Only free-standing stage and clear art is trimmed; note, judge, HUD
-		// and lane sprites keep their original rects so the engine can use
-		// uniform per-family geometry.
-		if s.meta.Group != "stage" && s.meta.Group != "clear" {
+		// Only free-standing stage art is trimmed; note, judge, HUD and lane
+		// sprites keep their original rects so the engine can use uniform
+		// per-family geometry.
+		if s.meta.Group != "stage" {
 			continue
 		}
 		if (s.meta.Kind != "sprite" && s.meta.Kind != "tint") || s.meta.Border != nil || s.meta.Scale != 0 {

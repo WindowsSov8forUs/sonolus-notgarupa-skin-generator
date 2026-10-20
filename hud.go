@@ -138,26 +138,6 @@ func addHUD(b *skinBuilder) error {
 			return err
 		}
 	}
-
-	// Full Combo / All Perfect lettering (catalog group gameClear, one PNG each).
-	for _, e := range cat.Groups["gameClear"] {
-		if strings.HasPrefix(e.File, "Tex_parSet") || e.Profile == nil {
-			continue // particle textures belong to the particle pack
-		}
-		tex, err := apkTexture("prefabs/bms/gameclear/" + e.File)
-		if err != nil {
-			return err
-		}
-		sprites, err := unityasset.CropRows(e.Profile.AtlasRows, tex)
-		if err != nil {
-			return err
-		}
-		for _, key := range sortedKeys(sprites) {
-			if err := b.addUnity(stripHash(key), "clear", "APK prefabs/bms/gameclear/"+e.File, sprites[key], ""); err != nil {
-				return err
-			}
-		}
-	}
 	return nil
 }
 

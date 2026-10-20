@@ -1,6 +1,6 @@
 # sonolus-notgarupa-skin-generator
 
-生成 NotGarupa 的全部皮肤条目：原作的音符 / 方向键 / lane 场 / 判定文字皮肤，自绘 HUD 所需的全部部件（分数、评级槽、生命槽、生命遮罩、连击数字、AddScore、FAST/SLOW、Auto 标签、SS 特效）、lane 光柱、舞台灯光与音箱、Full Combo / All Perfect 文字，以及预渲染的字形。精灵名即原作精灵名，约定见 `sonolus-notgarupa-engine/docs/RESOURCE_CONTRACT.md`。
+生成 NotGarupa 的全部皮肤条目：原作的音符 / 方向键 / lane 场 / 判定文字皮肤，自绘 HUD 所需的全部部件（分数、评级槽、生命槽、生命遮罩、连击数字、AddScore、FAST/SLOW、Auto 标签、SS 特效）、lane 光柱、舞台灯光与音箱，以及预渲染的字形。精灵名即原作精灵名，约定见 `sonolus-notgarupa-engine/docs/RESOURCE_CONTRACT.md`。
 
 ## 生成哪些条目
 
@@ -17,17 +17,17 @@
 每个条目包含：
 
 - 该组合的音符、方向键、lane（不含技能叠加层 `game_play_line_skill_adjust_effect`）与判定精灵。
-- 所有条目共用的 HUD、lane 光柱、舞台、通关美术、着色变体与字形。
+- 所有条目共用的 HUD、lane 光柱、舞台、着色变体与字形。
 - `default/judge_auto`：默认判定图集的 judge_auto。原作在 Auto Live 中从不使用特殊判定皮肤，引擎在 Auto 中画这一个。
 - 音符皮肤主数据 `noteSyncEdgeMargin` 为 1.1 的条目（TYPE7）带有存在标记 `notgarupa/noteSyncEdgeMargin_1.1`（1×1 透明），引擎据此把同时押线的两端向内收 1.1 × 音符缩放。
 - HABAHIRO 条目：普通命名的精灵用 skin00 音符与 lane（lane 变更之前显示 skin00 lane），另加 `habahiro/<原作名>` 的宽音符图集、长条贴图、lane 变更后的场地与闪光，见 [HABAHIRO.md](HABAHIRO.md)。它们不是与普通条目并列的皮肤：服务器不在列表中提供它们，只按玩家的方向键配置项为 `#HABAHIRO` 关卡选用（`Result.Habahiro` 为 true）。
 
-命名规则：着色变体以 `名称@RRGGBB[AA]` 命名，九宫格 / 三段切片以 `#L/#M/#R`、`#TL…#BR` 后缀命名，字形以 `sgm_<字号>_<颜色>_<字符>` 命名（2 倍分辨率）。加色混合的美术（舞台灯光、音箱发光等）已换算为普通 alpha 混合；只有舞台与通关美术会裁掉透明边。纹理：普通条目 2048×4096（全部内容放不进 2048²），HABAHIRO 条目 4096×8192（全部按原分辨率）。
+命名规则：着色变体以 `名称@RRGGBB[AA]` 命名，九宫格 / 三段切片以 `#L/#M/#R`、`#TL…#BR` 后缀命名，字形以 `sgm_<字号>_<颜色>_<字符>` 命名（2 倍分辨率）。加色混合的美术（舞台灯光、音箱发光等）已换算为普通 alpha 混合；只有舞台美术会裁掉透明边。纹理：普通条目 2048×4096（全部内容放不进 2048²），HABAHIRO 条目 4096×8192（全部按原分辨率）。
 
 来源：
 
 - Bestdori 资源（音符、方向键、场地、判定皮肤），按服务器优先级取第一个拥有该 bundle 的服务器，运行时下载到 `.cache/`。
-- 原作 APK 内置资源（不在 AssetBundle 中、无法联网获取）：HUD 图集（`rhythm-game-ui`、`rhythm-game-additive`、连击数字、`uicommon`、`ui-additive-effect`）、lane tap 光柱、Sudden 线、分数槽高分段贴图、舞台灯光 / 音箱 / 荧光棒、生命遮罩 `sub_glow`（演奏场景的 GameOverCover 贴图）、FC / AP 字样与 `sgm` 字体，随项目放在 `assets/apk/`（`go:embed` 编入程序）。`assets/apk/render-catalog.json` 是这些图集的 atlas 行（矩形、pivot、border）。
+- 原作 APK 内置资源（不在 AssetBundle 中、无法联网获取）：HUD 图集（`rhythm-game-ui`、`rhythm-game-additive`、连击数字、`uicommon`、`ui-additive-effect`）、lane tap 光柱、Sudden 线、分数槽高分段贴图、舞台灯光 / 音箱 / 荧光棒、生命遮罩 `sub_glow`（演奏场景的 GameOverCover 贴图）与 `sgm` 字体，随项目放在 `assets/apk/`（`go:embed` 编入程序）。`assets/apk/render-catalog.json` 是这些图集的 atlas 行（矩形、pivot、border）。
 
 ## 命令行
 

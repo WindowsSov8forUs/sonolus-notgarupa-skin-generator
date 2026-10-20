@@ -77,13 +77,4 @@ func sortedKeys[V any](m map[string]V) []string {
 	return keys
 }
 
-// stripHash removes the content-hash suffix of the game-clear file names
-// ("AllPerfect_A-128DBB295661" → "AllPerfect_A").
-func stripHash(name string) string {
-	if i := strings.LastIndex(name, "-"); i > 0 && len(name)-i-1 == 12 {
-		return name[:i]
-	}
-	return name
-}
-
 var _ = path.Base
