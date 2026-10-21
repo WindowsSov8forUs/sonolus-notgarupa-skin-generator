@@ -3,6 +3,8 @@ package skin
 import (
 	"fmt"
 	"image"
+	"image/color"
+	"math"
 	"strings"
 
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/imgutil"
@@ -48,16 +50,16 @@ type plainSource struct {
 	pivot                   [2]float64
 	additive                bool
 	subtractive             bool
+	darkCover               bool // under the stage's DarkCover: its subtraction baked in
 }
 
 var plainSources = []plainSource{
 	{name: "Tex_miniShine", path: "prefabs/bms/stage/stage-light.png", group: "stage", additive: true, pivot: [2]float64{0.5, 0.5},
 		note: "stage light (light_color ≈180² and light_white ≈99.7² UI units)"},
-	{name: "Tex_speaker", path: "prefabs/bms/stage/stage-speaker.png", group: "stage", pivot: [2]float64{0.5, 0.5}, note: "speaker, widget 188×256"},
+	{name: "Tex_speaker", path: "prefabs/bms/stage/stage-speaker.png", group: "stage", pivot: [2]float64{0.5, 0.5}, darkCover: true,
+		note: "speaker, widget 188×256; DarkCover (queue 3490, RevSubtraction) subtraction baked in"},
 	{name: "speaker_effect", path: "prefabs/bms/stage/stage-speaker-glow.png", group: "stage", additive: true, pivot: [2]float64{0.5, 0.5},
 		note: "speaker glow, widget 118×114"},
-	{name: "Pyllium", path: "prefabs/bms/stage/stage-psyllium.png", group: "stage", additive: true, pivot: [2]float64{0.5, 0},
-		note: "psyllium 166×138: right half glow, left half core; widgets 64×128, pivot bottom"},
 	{name: "sub_glow", path: "scene/gameplay/sub_glow.png", group: "hud", subtractive: true, pivot: [2]float64{0.5, 0.5},
 		note: "GameOverCover life vignette, UITexture 1334×1500"},
 }
@@ -133,12 +135,67 @@ func addHUD(b *skinBuilder) error {
 			img = imgutil.SubtractiveToAlpha(img)
 			note = strings.TrimPrefix(note+"; "+subtractiveNote, "; ")
 		}
+		if ps.darkCover {
+			if img, err = darkCovered(img); err != nil {
+				return err
+			}
+		}
 		if err := b.add(SpriteMeta{Name: ps.name, Kind: "sprite", Group: ps.group, Source: "APK " + ps.path,
 			Pivot: ps.pivot, Note: note}, img); err != nil {
 			return err
 		}
 	}
+	// Psyllium: one 166×138 texture, the penlight on its right half (uvRect
+	// 0.5,0,0.5,1) and the core on its left half (0,0,0.5,1); both widgets
+	// 64×128, Bottom pivot, Additive Cheap.
+	psy, err := apkTexture("prefabs/bms/stage/stage-psyllium.png")
+	if err != nil {
+		return err
+	}
+	half := psy.Rect.Dx() / 2
+	for _, part := range []struct {
+		name string
+		x    int
+	}{{"Pyllium_penlight", half}, {"Pyllium_core", 0}} {
+		img, err := imgutil.Crop(psy, part.x, 0, half, psy.Rect.Dy())
+		if err != nil {
+			return err
+		}
+		if err := b.add(SpriteMeta{Name: part.name, Kind: "sprite", Group: "stage", Source: "APK prefabs/bms/stage/stage-psyllium.png",
+			Pivot: [2]float64{0.5, 0}, Note: "psyllium half, widget 64×128, pivot bottom; " + additiveNote}, imgutil.AdditiveToAlpha(img)); err != nil {
+			return err
+		}
+	}
+	// A plain opaque black fill (uniform tints such as the opening's
+	// backdrop dimming).
+	if err := b.add(SpriteMeta{Name: "notgarupa/black", Kind: "sprite", Group: "stage", Source: "generated",
+		Pivot: [2]float64{0.5, 0.5}, Note: "uniform black fill"}, imgutil.Solid(4, 4, color.NRGBA{A: 255})); err != nil {
+		return err
+	}
 	return nil
+}
+
+// darkCovered bakes the stage DarkCover into a sprite drawn under it:
+// linear RGB −= linear(cover texel) × cover alpha × linear(widget 0.25),
+// clamped at 0 (CE/RevSubtraction in linear colour space). The cover
+// texture is uniform.
+func darkCovered(img *image.NRGBA) (*image.NRGBA, error) {
+	cover, err := apkTexture("prefabs/bms/stage/stage-dark-cover.png")
+	if err != nil {
+		return nil, err
+	}
+	c := cover.Pix[:4]
+	k := imgutil.SRGBToLinear(0.25) * float64(c[3]) / 255
+	out := image.NewNRGBA(img.Rect)
+	copy(out.Pix, img.Pix)
+	for i := 0; i < len(out.Pix); i += 4 {
+		for j := 0; j < 3; j++ {
+			sub := imgutil.SRGBToLinear(float64(c[j])/255) * k
+			lin := math.Max(0, imgutil.SRGBToLinear(float64(out.Pix[i+j])/255)-sub)
+			out.Pix[i+j] = uint8(math.Round(imgutil.LinearToSRGB(lin) * 255))
+		}
+	}
+	return out, nil
 }
 
 // addTints bakes the vertex colours the original applies at runtime, because
@@ -165,9 +222,9 @@ func addTints(b *skinBuilder) error {
 		{"ss_kira", [4]float64{1, 0.9343, 0.8443, 1}, "SS kira_8"},
 		{"Tex_miniShine", [4]float64{0, 55.0 / 255, 1, 1}, "stage light colour table: blue (0,55,255)"},
 		{"Tex_miniShine", [4]float64{213.0 / 255, 1, 1, 1}, "stage light colour table: light blue (213,255,255)"},
-		{"Pyllium", [4]float64{191.0 / 255, 238.0 / 255, 240.0 / 255, 1}, "psyllium default colour (191,238,240)"},
-		{"Pyllium", [4]float64{200.0 / 255, 200.0 / 255, 200.0 / 255, 1}, "psyllium core colour (200,200,200)"},
 		{"point_charactor_shadow", [4]float64{0, 0, 0, 1}, "BgCover of the opening (point_charactor_shadow tinted black)"},
+		{"Pyllium_penlight", [4]float64{191.0 / 255, 238.0 / 255, 240.0 / 255, 1}, "psyllium penlight DefaultColor (191,238,240)"},
+		{"Pyllium_core", [4]float64{200.0 / 255, 200.0 / 255, 200.0 / 255, 1}, "psyllium core colour (200,200,200)"},
 	}
 	for _, t := range tints {
 		if _, err := b.addTint(t.name, t.c, t.note); err != nil {
