@@ -89,7 +89,14 @@ type Result struct {
 	Texture   []byte // PNG
 	Thumbnail []byte // PNG
 	Contract  Contract
+	// Axes are the item's live settings with their original names, for a
+	// server's combination search (HABAHIRO items: none).
+	Axes []Axis
 }
+
+// Axis is one live setting of an item: axis (notes, directionalFlick, lane,
+// effect), bundle and display name.
+type Axis = master.Axis
 
 // Contract describes every sprite's geometry for the engine (written as
 // contracts/<item>.json by the command).
@@ -371,9 +378,18 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 			Description: packout.T(desc, desc, desc),
 		},
 		Habahiro:  spec.Habahiro,
+		Axes:      searchAxes(spec.Habahiro, spec.Axes),
 		Data:      data,
 		Texture:   texture,
 		Thumbnail: thumbnail,
 		Contract:  contract,
 	}, nil
+}
+
+// searchAxes are an item's search axes (none for the hidden HABAHIRO items).
+func searchAxes(habahiro bool, axes []Axis) []Axis {
+	if habahiro {
+		return nil
+	}
+	return axes
 }

@@ -42,9 +42,13 @@ func main() {
 		cli.Fatal(err)
 	}
 	done := 0
+	var axes []cli.ItemAxes
 	err = skin.Generate(context.Background(), opts, func(r *skin.Result) error {
 		if err := tree.Add(r); err != nil {
 			return err
+		}
+		if r.Axes != nil {
+			axes = append(axes, cli.ItemAxes{Name: r.Item.Name, Axes: r.Axes})
 		}
 		if err := cli.WriteJSON(filepath.Join(contracts, r.Item.Name+".json"), r.Contract); err != nil {
 			return err
@@ -57,6 +61,9 @@ func main() {
 		cli.Fatal(err)
 	}
 	if err := cli.Pack(source, filepath.Join(common.Out, "pack"), total); err != nil {
+		cli.Fatal(err)
+	}
+	if err := cli.WriteAxes(filepath.Join(common.Out, "pack"), "skins", axes, total); err != nil {
 		cli.Fatal(err)
 	}
 	fmt.Printf("%d skins -> %s\n", done, common.Out)

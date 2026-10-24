@@ -66,7 +66,7 @@ err = skin.Generate(ctx, skin.Options{Source: skin.Source{CacheDir: "cache/notga
 
 - `Options`：`Source` 控制下载（`CacheDir`、`Regions`、`Offline`、`HTTPClient`、`Log`），`Workers` 为并行数（0 = CPU 数）；`ctx` 可取消。多个生成器可以共用同一个 `CacheDir`（缓存写入是原子的）。
 - `Generate` 逐个交出条目（emit 在同一个 goroutine 中调用，顺序不定），第一个错误会中止并返回；共用的素材只下载、解码一次。
-- `Result`：`Item`（sonolus-core-go 的 `database.DatabaseSkinItem`，资源字段留空）、`Habahiro`、`Data`（`resource.SkinData`）、`Texture`、`Thumbnail`（PNG）与 `Contract`。`Result.Files()` 按 item.json 的字段名返回资源字节："thumbnail"、"data"（已 gzip 压缩）、"texture"。
+- `Result`：`Item`（sonolus-core-go 的 `database.DatabaseSkinItem`，资源字段留空）、`Habahiro`、`Data`（`resource.SkinData`）、`Texture`、`Thumbnail`（PNG）、`Contract` 与 `Axes`（音符、方向键、lane 三个设置轴）。`Result.Files()` 按 item.json 的字段名返回资源字节："thumbnail"、"data"（已 gzip 压缩）、"texture"。命令行在打包后另写 `out/pack/garupa-axes.json`：按包中顺序列出每个可见条目的设置轴（`axis`、`bundle`、原作名称 `name`），服务器据此提供组合搜索；库中同样的信息在 `Result.Axes`（HABAHIRO 条目为空）。
 - `skin.CreateSourceTree(dir)` 创建 sonolus-pack 源目录，`(*SourceTree).Add(r)` 写入一个条目（命令行就是 `Generate` + `SourceTree` + sonolus-pack-go）。
 
 在 sonolus-server-go 中注册（作为依赖同样需要 `GOPRIVATE`）：
