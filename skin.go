@@ -135,7 +135,7 @@ type SourceTree struct{ src *packout.Source }
 
 // CreateSourceTree (re)creates root as a sonolus-pack source tree.
 func CreateSourceTree(root string) (*SourceTree, error) {
-	src, err := packout.Init(root, packout.T("NotGarupa Skins", "NotGarupa 皮肤", "NotGarupa スキン"))
+	src, err := packout.Init(root, packout.T("NotGarupa Skins", "NotGarupa 皮肤", "NotGarupa 皮膚", "NotGarupa スキン"))
 	if err != nil {
 		return nil, err
 	}
@@ -371,11 +371,11 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 		Item: database.DatabaseSkinItem{
 			Name:        spec.Name(),
 			Version:     packout.SkinVersion,
-			Title:       packout.T(title, title, title),
-			Subtitle:    packout.T("BanG Dream! Girls Band Party!", "BanG Dream! 少女乐团派对！", "バンドリ！ ガールズバンドパーティ！"),
-			Author:      packout.T("GirlsBandParty", "GirlsBandParty", "GirlsBandParty"),
+			Title:       packout.L(title),
+			Subtitle:    packout.T("BanG Dream! Girls Band Party!", "BanG Dream! 少女乐团派对！", "BanG Dream! 少女樂團派對！", "バンドリ！ ガールズバンドパーティ！"),
+			Author:      packout.T("GirlsBandParty", "GirlsBandParty", "GirlsBandParty", "GirlsBandParty"),
 			Tags:        []database.DatabaseTag{},
-			Description: packout.T(desc, desc, desc),
+			Description: packout.T(desc, desc, desc, desc),
 		},
 		Habahiro:  spec.Habahiro,
 		Axes:      searchAxes(spec.Habahiro, spec.Axes),
