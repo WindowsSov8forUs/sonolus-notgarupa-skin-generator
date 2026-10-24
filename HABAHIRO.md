@@ -13,14 +13,14 @@ HABAHIRO 是 NotGarupa 的固定组成部分，生成器每次都会输出它，
 
 | 项 | 普通 | HABAHIRO |
 |---|---|---|
-| 条目名 | `notgarupa-skin00-skin00-skin00` 等 | `notgarupa-habahiro-<方向键>`（如 `notgarupa-habahiro-skin00`） |
+| 条目名 | `garupa-skin00-skin00-skin00` 等 | `garupa-habahiro-<方向键>`（如 `garupa-habahiro-skin00`，标题「HABAHIRO / TYPE1」） |
 | sonolus-pack 源 / 可加载的包 | `out/source` / `out/pack`（两个条目在同一个包里） | 同左 |
 | 契约 | `out/contracts/<条目>.json` | 同左（另有顶层 `habahiro` 段，内容即本文的机器可读版） |
 | 纹理 | 2048×4096 | 4096×8192 |
 
 HABAHIRO 条目的纹理是 4096×8192，全部按原分辨率存放，没有缩小。只有宽音符图集一项就约有 15 Mpx²，所以 4096² 放不下。这超出了 Sonolus 建议的 2048²，但没有超过 8192 的上限。
 
-背景由 `sonolus-notgarupa-background-generator` 生成，条目为 `notgarupa-habahiro`（只有普通背景；原作只在有 Fever 的多人模式加载 fever 背景）。粒子由粒子生成器负责（`notgarupa-habahiro-<方向键特效>`），不在本条目内。
+背景由 `sonolus-notgarupa-background-generator` 生成，条目为 `garupa-habahiro`（只有普通背景；原作只在有 Fever 的多人模式加载 fever 背景）。粒子由粒子生成器负责（`garupa-habahiro-<方向键特效>`），不在本条目内。
 
 ## 宽音符精灵名
 

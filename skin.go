@@ -340,10 +340,9 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 		return nil, err
 	}
 
-	title := fmt.Sprintf("NotGarupa %s / %s / %s", spec.Notes, spec.Lane, spec.Directional)
+	title := spec.Title
 	desc := fmt.Sprintf("Note: %s, lane: %s, directional: %s, judge: %s.", spec.Notes, spec.Lane, spec.Directional, spec.Judge)
 	if spec.Habahiro {
-		title = fmt.Sprintf("NotGarupa HABAHIRO / %s", spec.Directional)
 		desc = fmt.Sprintf("For #HABAHIRO levels (the original forces the habahiro note skin, lane and judge skin): the skin00 lane until the lane change, the original HABAHIRO wide-note atlas, its long bodies, the lane-change field and flash; directional: %s.", spec.Directional)
 	}
 	groups := map[string]int{}
@@ -366,8 +365,8 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 			Name:        spec.Name(),
 			Version:     packout.SkinVersion,
 			Title:       packout.T(title, title, title),
-			Subtitle:    packout.T("BanG Dream! Girls Band Party! (original art)", "BanG Dream! 少女乐团派对！（原作素材）", "バンドリ！ ガールズバンドパーティ！（原作素材）"),
-			Author:      packout.T("sonolus-notgarupa-skin-generator", "sonolus-notgarupa-skin-generator", "sonolus-notgarupa-skin-generator"),
+			Subtitle:    packout.T("BanG Dream! Girls Band Party!", "BanG Dream! 少女乐团派对！", "バンドリ！ ガールズバンドパーティ！"),
+			Author:      packout.T("GirlsBandParty", "GirlsBandParty", "GirlsBandParty"),
 			Tags:        []database.DatabaseTag{},
 			Description: packout.T(desc, desc, desc),
 		},
