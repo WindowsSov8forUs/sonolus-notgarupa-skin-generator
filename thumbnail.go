@@ -24,46 +24,60 @@ const (
 	thumbWidth  = 112 * thumbS
 )
 
-// thumbnail returns the PNG thumbnail of a note skin and a field bundle
-// (fieldBundle is the full bundle path; note is the note_normal_3 sprite),
-// composed once per Generate call.
-func (ps *parts) thumbnail(key, fieldBundle string, note *image.NRGBA) ([]byte, error) {
-	ps.mu.Lock()
-	e, ok := ps.cache["thumbnail "+key]
-	if !ok {
-		e = &partEntry{}
-		ps.cache["thumbnail "+key] = e
-	}
-	ps.mu.Unlock()
-	e.once.Do(func() {
+// thumbnail returns the PNG thumbnail of an item: key names the note skin
+// and lane, fieldBundle is the lane's bundle path, note the centre-lane note
+// and left / right the directional arrows. The base layer is composed once
+// per (note skin, lane), the thumbnail once per item key.
+func (ps *parts) thumbnail(key, fieldBundle string, note *image.NRGBA, dirKey string, left, right *image.NRGBA) ([]byte, error) {
+	base, err := ps.once("thumbnail base "+key, func(e *partEntry) error {
 		_, tex, err := bundleSprites(ps.bd, fieldBundle)
 		if err != nil {
-			e.err = err
-			return
+			return err
 		}
 		field, err := tex("bg_line_rhythm.png")
 		if err != nil {
-			e.err = err
-			return
+			return err
 		}
 		judge, err := tex("game_play_line.png")
 		if err != nil {
-			e.err = err
-			return
+			return err
 		}
-		img, err := composeThumbnail(field, judge, note, fieldBundle == "ingameskin/fieldskin/skin_gbp2020")
+		layer, err := composeThumbnailBase(field, judge, note, fieldBundle == "ingameskin/fieldskin/skin_gbp2020")
 		if err != nil {
-			e.err = fmt.Errorf("thumbnail %s: %w", key, err)
-			return
+			return fmt.Errorf("thumbnail %s: %w", key, err)
+		}
+		e.p = &part{base: layer}
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	final, err := ps.once("thumbnail "+key+"|"+dirKey, func(e *partEntry) error {
+		img, err := composeThumbnail(base.base, left, right)
+		if err != nil {
+			return fmt.Errorf("thumbnail %s|%s: %w", key, dirKey, err)
 		}
 		png, err := imgutil.EncodePNG(img)
-		e.err = err
 		e.p = &part{thumbnail: png}
+		return err
 	})
-	if e.err != nil {
-		return nil, e.err
+	if err != nil {
+		return nil, err
 	}
-	return e.p.thumbnail, nil
+	return final.thumbnail, nil
+}
+
+// once runs build once per key (concurrent callers wait) and returns its part.
+func (ps *parts) once(key string, build func(e *partEntry) error) (*part, error) {
+	ps.mu.Lock()
+	e, ok := ps.cache[key]
+	if !ok {
+		e = &partEntry{}
+		ps.cache[key] = e
+	}
+	ps.mu.Unlock()
+	e.once.Do(func() { e.err = build(e) })
+	return e.p, e.err
 }
 
 func newRGBA(w, h int) *image.RGBA { return image.NewRGBA(image.Rect(0, 0, w, h)) }
@@ -196,7 +210,38 @@ func thickened(img *image.NRGBA, radius int) *image.RGBA {
 	return out
 }
 
-func composeThumbnail(fieldSrc, judge, note *image.NRGBA, isolate bool) (*image.NRGBA, error) {
+// thumbArrowBox is the box (1× units, x0, y0, x1, y1) of the left
+// directional arrow in the top-left corner; the right one is mirrored.
+var thumbArrowBox = [4]float64{1, 1, 33, 41}
+
+// composeThumbnail is the item thumbnail: the base layer (lane, judge line,
+// note) with the directional skin's arrows in the top corners (Sonolus shows
+// one image per item; GarupaEditor shows the directional skin separately),
+// outlined and scaled to 128×128.
+func composeThumbnail(base *image.RGBA, left, right *image.NRGBA) (*image.NRGBA, error) {
+	layer := newRGBA(thumbSize, thumbSize)
+	copy(layer.Pix, base.Pix)
+	for i, arrow := range []*image.NRGBA{left, right} {
+		ab, err := alphaBounds(arrow, 8, 0)
+		if err != nil {
+			return nil, fmt.Errorf("directional arrow: %w", err)
+		}
+		bw, bh := (thumbArrowBox[2]-thumbArrowBox[0])*thumbS, (thumbArrowBox[3]-thumbArrowBox[1])*thumbS
+		factor := math.Min(bw/float64(ab.Dx()), bh/float64(ab.Dy()))
+		w, h := int(math.Round(float64(ab.Dx())*factor)), int(math.Round(float64(ab.Dy())*factor))
+		x := int(math.Round(thumbArrowBox[0]*thumbS + (bw-float64(w))/2))
+		y := int(math.Round(thumbArrowBox[1]*thumbS + (bh-float64(h))/2))
+		if i == 1 {
+			x = thumbSize - x - w
+		}
+		scaleOver(layer, image.Rect(x, y, x+w, y+h), arrow, ab.Add(arrow.Rect.Min))
+	}
+	return outlineThumbnail(layer), nil
+}
+
+// composeThumbnailBase draws the lane, the judge line and the centre-lane
+// note at 4× (GarupaEditor's composition).
+func composeThumbnailBase(fieldSrc, judge, note *image.NRGBA, isolate bool) (*image.RGBA, error) {
 	layer := newRGBA(thumbSize, thumbSize)
 
 	// Lane: the body below 24 % of the image, between the horizontal bounds
@@ -289,7 +334,11 @@ func composeThumbnail(fieldSrc, judge, note *image.NRGBA, isolate bool) (*image.
 	w, h := int(math.Round(float64(nb.Dx())*factor)), int(math.Round(float64(nb.Dy())*factor))
 	x, y := int(math.Round(float64(thumbSize-w)/2)), int(math.Round(56*thumbS-float64(h)/2))
 	scaleOver(layer, image.Rect(x, y, x+w, y+h), note, nb.Add(note.Rect.Min))
+	return layer, nil
+}
 
+// outlineThumbnail adds the dark outline and scales the 4× layer to 128×128.
+func outlineThumbnail(layer *image.RGBA) *image.NRGBA {
 	// Dark outline: the combined alpha dilated by 3 px (at 1×).
 	alpha := make([]uint8, thumbSize*thumbSize)
 	for i := range alpha {
@@ -306,5 +355,5 @@ func composeThumbnail(fieldSrc, judge, note *image.NRGBA, isolate bool) (*image.
 
 	result := newRGBA(128, 128)
 	xdraw.CatmullRom.Scale(result, result.Rect, outlined, outlined.Rect, xdraw.Src, nil)
-	return imgutil.ToNRGBA(result), nil
+	return imgutil.ToNRGBA(result)
 }

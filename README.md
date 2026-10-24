@@ -16,7 +16,7 @@
 
 每个条目包含：
 
-- 封面（thumbnail，128×128）：按 GarupaEditor 的皮肤缩略图构图（`thumbnail.go`）合成——条目 lane 的 `bg_line_rhythm` 拉成梯形并提亮、`game_play_line` 判定线压在下沿、中央 lane 的 `note_normal_3` 在上方，4 倍分辨率绘制、加深灰描边后缩小；`skin_gbp2020` 先去掉轨道外的星星装饰。只由音符皮肤与 lane 决定，同一组合的条目共用一张；HABAHIRO 条目用 HABAHIRO lane 与 HABAHIRO 中央音符。
+- 封面（thumbnail，128×128）：按 GarupaEditor 的皮肤缩略图构图（`thumbnail.go`）合成——条目 lane 的 `bg_line_rhythm` 拉成梯形并提亮、`game_play_line` 判定线压在下沿、中央 lane 的 `note_normal_3` 在上方、方向键箭头在两个上角，4 倍分辨率绘制、加深灰描边后缩小；`skin_gbp2020` 先去掉轨道外的星星装饰。方向键皮肤的左右箭头（`note_flick_top_l` / `_r`）分别放在左上角与右上角（各约 32×40 的区域内等比缩放），不压到轨道与中央音符——GarupaEditor 把方向键单独展示，Sonolus 每个条目只有一张封面。底图（lane、判定线、音符）每个 音符 × lane 组合只合成一次；HABAHIRO 条目用 HABAHIRO lane 与 HABAHIRO 中央音符。
 
 - 该组合的音符、方向键、lane（不含技能叠加层 `game_play_line_skill_adjust_effect`）与判定精灵。
 - 所有条目共用的 HUD、lane 光柱、舞台、着色变体与字形。

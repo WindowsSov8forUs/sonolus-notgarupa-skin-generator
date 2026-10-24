@@ -2,6 +2,7 @@ package skin
 
 import (
 	"fmt"
+	"image"
 	"image/color"
 	"strings"
 	"sync"
@@ -23,7 +24,8 @@ const defaultJudgePrefix = "default/"
 // shared read-only by every item that uses it.
 type part struct {
 	sprites   []*skinSprite
-	thumbnail []byte // a thumbnail entry's PNG (ps.thumbnail)
+	thumbnail []byte      // a thumbnail entry's PNG (ps.thumbnail)
+	base      *image.RGBA // a thumbnail base layer
 }
 
 // parts builds each part once per Generate call.

@@ -16,6 +16,7 @@ package skin
 import (
 	"context"
 	"fmt"
+	"image"
 	"net/http"
 	"path/filepath"
 	"runtime"
@@ -333,16 +334,31 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 		return nil, err
 	}
 
-	// thumbnail: the item's note skin and lane (thumbnail.go)
+	// thumbnail: the item's note skin, lane and directional arrows (thumbnail.go)
 	thumbName, thumbKey, thumbField := "note_normal_3", spec.Notes+"|"+spec.Lane, "ingameskin/fieldskin/"+spec.Lane
 	if spec.Habahiro {
 		thumbName, thumbKey, thumbField = habahiroPrefix+"note_normal_2_3_4", "habahiro", habahiroFieldBundle
 	}
-	thumb, ok := b.byName[thumbName]
-	if !ok {
-		return nil, fmt.Errorf("no thumbnail sprite %s", thumbName)
+	thumbImg := func(name string) (*image.NRGBA, error) {
+		s, ok := b.byName[name]
+		if !ok {
+			return nil, fmt.Errorf("no thumbnail sprite %s", name)
+		}
+		return s.img, nil
 	}
-	thumbnail, err := ps.thumbnail(thumbKey, thumbField, thumb.img)
+	thumbNote, err := thumbImg(thumbName)
+	if err != nil {
+		return nil, err
+	}
+	arrowL, err := thumbImg("note_flick_top_l")
+	if err != nil {
+		return nil, err
+	}
+	arrowR, err := thumbImg("note_flick_top_r")
+	if err != nil {
+		return nil, err
+	}
+	thumbnail, err := ps.thumbnail(thumbKey, thumbField, thumbNote, spec.Directional, arrowL, arrowR)
 	if err != nil {
 		return nil, err
 	}
