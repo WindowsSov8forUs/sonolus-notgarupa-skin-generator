@@ -26,9 +26,9 @@ const (
 
 // thumbnail returns the PNG thumbnail of an item: key names the note skin
 // and lane, fieldBundle is the lane's bundle path, note the centre-lane note
-// and left / right the directional arrows. The base layer is composed once
+// and dir the directional skin's left body and arrow, right body and arrow. The base layer is composed once
 // per (note skin, lane), the thumbnail once per item key.
-func (ps *parts) thumbnail(key, fieldBundle string, note *image.NRGBA, dirKey string, left, right *image.NRGBA) ([]byte, error) {
+func (ps *parts) thumbnail(key, fieldBundle string, note *image.NRGBA, dirKey string, dir [4]*image.NRGBA) ([]byte, error) {
 	base, err := ps.once("thumbnail base "+key, func(e *partEntry) error {
 		_, tex, err := bundleSprites(ps.bd, fieldBundle)
 		if err != nil {
@@ -53,7 +53,7 @@ func (ps *parts) thumbnail(key, fieldBundle string, note *image.NRGBA, dirKey st
 		return nil, err
 	}
 	final, err := ps.once("thumbnail "+key+"|"+dirKey, func(e *partEntry) error {
-		img, err := composeThumbnail(base.base, left, right)
+		img, err := composeThumbnail(base.base, dir[0], dir[1], dir[2], dir[3])
 		if err != nil {
 			return fmt.Errorf("thumbnail %s|%s: %w", key, dirKey, err)
 		}
@@ -210,31 +210,63 @@ func thickened(img *image.NRGBA, radius int) *image.RGBA {
 	return out
 }
 
-// thumbArrowBox is the box (1× units, x0, y0, x1, y1) of the left
-// directional arrow in the top-left corner; the right one is mirrored.
-var thumbArrowBox = [4]float64{1, 1, 33, 41}
+// Directional notes: the whole note of the centre lane, body
+// (note_flick_<l|r>_3, 308×120 px) with its arrow (note_flick_top_<l|r>,
+// 138×171 px) beside it at the rest offset of 1.6 note units (160 px at PPU
+// 100), as the engine draws it.
+const thumbArrowOffset = 160
+
+// The thumbnail canvas (1× units) is larger than GarupaEditor's 128 so that
+// both whole directional notes fit in a band above the lane: the left one
+// in thumbDirBox, the right one mirrored; the base composition sits below.
+const (
+	thumbCanvas = 144
+	thumbBaseDY = 14 // the base layer's offset below the band
+	thumbOut    = 256
+)
+
+var thumbDirBox = [4]float64{3, 3, 69, 33}
+
+// directionalNote draws a body with its arrow (left of the body when left).
+func directionalNote(body, arrow *image.NRGBA, left bool) *image.RGBA {
+	bw, bh := body.Rect.Dx(), body.Rect.Dy()
+	aw, ah := arrow.Rect.Dx(), arrow.Rect.Dy()
+	ax := thumbArrowOffset // arrow centre relative to the body centre
+	if left {
+		ax = -ax
+	}
+	minX := min(-bw/2, ax-aw/2)
+	maxX := max(bw-bw/2, ax+aw-aw/2)
+	h := max(bh, ah)
+	out := newRGBA(maxX-minX, h)
+	draw.Draw(out, image.Rect(-bw/2-minX, (h-bh)/2, -bw/2-minX+bw, (h-bh)/2+bh), body, body.Rect.Min, draw.Over)
+	draw.Draw(out, image.Rect(ax-aw/2-minX, (h-ah)/2, ax-aw/2-minX+aw, (h-ah)/2+ah), arrow, arrow.Rect.Min, draw.Over)
+	return out
+}
 
 // composeThumbnail is the item thumbnail: the base layer (lane, judge line,
-// note) with the directional skin's arrows in the top corners (Sonolus shows
-// one image per item; GarupaEditor shows the directional skin separately),
-// outlined and scaled to 128×128.
-func composeThumbnail(base *image.RGBA, left, right *image.NRGBA) (*image.NRGBA, error) {
-	layer := newRGBA(thumbSize, thumbSize)
-	copy(layer.Pix, base.Pix)
-	for i, arrow := range []*image.NRGBA{left, right} {
-		ab, err := alphaBounds(arrow, 8, 0)
+// note) below the directional skin's whole left and right notes (Sonolus
+// shows one image per item; GarupaEditor shows the directional skin
+// separately), outlined, cropped to its content and scaled to a square.
+func composeThumbnail(base *image.RGBA, bodyL, arrowL, bodyR, arrowR *image.NRGBA) (*image.NRGBA, error) {
+	size := thumbCanvas * thumbS
+	layer := newRGBA(size, size)
+	dx, dy := (size-thumbSize)/2, thumbBaseDY*thumbS
+	draw.Draw(layer, base.Rect.Add(image.Pt(dx, dy)), base, image.Point{}, draw.Over)
+	for i, note := range []*image.RGBA{directionalNote(bodyL, arrowL, true), directionalNote(bodyR, arrowR, false)} {
+		nb, err := alphaBounds(imgutil.ToNRGBA(note), 8, 0)
 		if err != nil {
-			return nil, fmt.Errorf("directional arrow: %w", err)
+			return nil, fmt.Errorf("directional note: %w", err)
 		}
-		bw, bh := (thumbArrowBox[2]-thumbArrowBox[0])*thumbS, (thumbArrowBox[3]-thumbArrowBox[1])*thumbS
-		factor := math.Min(bw/float64(ab.Dx()), bh/float64(ab.Dy()))
-		w, h := int(math.Round(float64(ab.Dx())*factor)), int(math.Round(float64(ab.Dy())*factor))
-		x := int(math.Round(thumbArrowBox[0]*thumbS + (bw-float64(w))/2))
-		y := int(math.Round(thumbArrowBox[1]*thumbS + (bh-float64(h))/2))
+		bw, bh := (thumbDirBox[2]-thumbDirBox[0])*thumbS, (thumbDirBox[3]-thumbDirBox[1])*thumbS
+		factor := math.Min(bw/float64(nb.Dx()), bh/float64(nb.Dy()))
+		w, h := int(math.Round(float64(nb.Dx())*factor)), int(math.Round(float64(nb.Dy())*factor))
+		x := int(math.Round(thumbDirBox[0]*thumbS + (bw-float64(w))/2))
+		y := int(math.Round(thumbDirBox[1]*thumbS + (bh-float64(h))/2))
 		if i == 1 {
-			x = thumbSize - x - w
+			x = size - x - w
 		}
-		scaleOver(layer, image.Rect(x, y, x+w, y+h), arrow, ab.Add(arrow.Rect.Min))
+		scaleOver(layer, image.Rect(x, y, x+w, y+h), note, nb)
 	}
 	return outlineThumbnail(layer), nil
 }
@@ -340,12 +372,13 @@ func composeThumbnailBase(fieldSrc, judge, note *image.NRGBA, isolate bool) (*im
 // outlineThumbnail adds the dark outline and scales the 4× layer to 128×128.
 func outlineThumbnail(layer *image.RGBA) *image.NRGBA {
 	// Dark outline: the combined alpha dilated by 3 px (at 1×).
-	alpha := make([]uint8, thumbSize*thumbSize)
+	size := layer.Rect.Dx()
+	alpha := make([]uint8, size*size)
 	for i := range alpha {
 		alpha[i] = layer.Pix[i*4+3]
 	}
-	grown := dilate(alpha, thumbSize, thumbSize, 3*thumbS)
-	outlined := newRGBA(thumbSize, thumbSize)
+	grown := dilate(alpha, size, size, 3*thumbS)
+	outlined := newRGBA(size, size)
 	border := image.NewNRGBA(outlined.Rect)
 	for i, a := range grown {
 		border.Pix[i*4], border.Pix[i*4+1], border.Pix[i*4+2], border.Pix[i*4+3] = 52, 52, 52, a
@@ -353,7 +386,15 @@ func outlineThumbnail(layer *image.RGBA) *image.NRGBA {
 	draw.Draw(outlined, outlined.Rect, border, image.Point{}, draw.Src)
 	draw.Draw(outlined, outlined.Rect, layer, image.Point{}, draw.Over)
 
-	result := newRGBA(128, 128)
-	xdraw.CatmullRom.Scale(result, result.Rect, outlined, outlined.Rect, xdraw.Src, nil)
+	// crop to the content, centred in a square with a 2-unit margin
+	b, err := alphaBounds(imgutil.ToNRGBA(outlined), 1, 0)
+	if err != nil {
+		b = outlined.Rect
+	}
+	side := max(b.Dx(), b.Dy()) + 4*thumbS
+	square := newRGBA(side, side)
+	draw.Draw(square, b.Sub(b.Min).Add(image.Pt((side-b.Dx())/2, (side-b.Dy())/2)), outlined, b.Min, draw.Src)
+	result := newRGBA(thumbOut, thumbOut)
+	xdraw.CatmullRom.Scale(result, result.Rect, square, square.Rect, xdraw.Src, nil)
 	return imgutil.ToNRGBA(result)
 }

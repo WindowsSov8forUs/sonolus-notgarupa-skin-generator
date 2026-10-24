@@ -350,15 +350,13 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 	if err != nil {
 		return nil, err
 	}
-	arrowL, err := thumbImg("note_flick_top_l")
-	if err != nil {
-		return nil, err
+	var dir [4]*image.NRGBA
+	for i, name := range []string{"note_flick_l_3", "note_flick_top_l", "note_flick_r_3", "note_flick_top_r"} {
+		if dir[i], err = thumbImg(name); err != nil {
+			return nil, err
+		}
 	}
-	arrowR, err := thumbImg("note_flick_top_r")
-	if err != nil {
-		return nil, err
-	}
-	thumbnail, err := ps.thumbnail(thumbKey, thumbField, thumbNote, spec.Directional, arrowL, arrowR)
+	thumbnail, err := ps.thumbnail(thumbKey, thumbField, thumbNote, spec.Directional, dir)
 	if err != nil {
 		return nil, err
 	}
