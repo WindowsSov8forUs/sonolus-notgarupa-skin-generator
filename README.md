@@ -16,6 +16,8 @@
 
 每个条目包含：
 
+- 封面（thumbnail，128×128）：按 GarupaEditor 的皮肤缩略图构图（`thumbnail.go`）合成——条目 lane 的 `bg_line_rhythm` 拉成梯形并提亮、`game_play_line` 判定线压在下沿、中央 lane 的 `note_normal_3` 在上方，4 倍分辨率绘制、加深灰描边后缩小；`skin_gbp2020` 先去掉轨道外的星星装饰。只由音符皮肤与 lane 决定，同一组合的条目共用一张；HABAHIRO 条目用 HABAHIRO lane 与 HABAHIRO 中央音符。
+
 - 该组合的音符、方向键、lane（不含技能叠加层 `game_play_line_skill_adjust_effect`）与判定精灵。
 - 所有条目共用的 HUD、lane 光柱、舞台、着色变体与字形。
 - `default/judge_auto`：默认判定图集的 judge_auto。原作在 Auto Live 中从不使用特殊判定皮肤，引擎在 Auto 中画这一个。

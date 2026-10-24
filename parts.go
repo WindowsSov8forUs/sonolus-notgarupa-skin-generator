@@ -21,7 +21,10 @@ const defaultJudgePrefix = "default/"
 
 // part is the finished sprites of one source (a bundle, or the APK HUD set),
 // shared read-only by every item that uses it.
-type part struct{ sprites []*skinSprite }
+type part struct {
+	sprites   []*skinSprite
+	thumbnail []byte // a thumbnail entry's PNG (ps.thumbnail)
+}
 
 // parts builds each part once per Generate call.
 type parts struct {

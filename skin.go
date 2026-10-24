@@ -26,7 +26,6 @@ import (
 	"github.com/WindowsSov8forUs/sonolus-core-go/database"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/atlas"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/bestdori"
-	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/imgutil"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/master"
 	"github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/internal/packout"
 )
@@ -334,15 +333,16 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 		return nil, err
 	}
 
-	thumbName := "note_normal_3"
+	// thumbnail: the item's note skin and lane (thumbnail.go)
+	thumbName, thumbKey, thumbField := "note_normal_3", spec.Notes+"|"+spec.Lane, "ingameskin/fieldskin/"+spec.Lane
 	if spec.Habahiro {
-		thumbName = habahiroPrefix + "note_normal_2_3_4"
+		thumbName, thumbKey, thumbField = habahiroPrefix+"note_normal_2_3_4", "habahiro", habahiroFieldBundle
 	}
 	thumb, ok := b.byName[thumbName]
 	if !ok {
 		return nil, fmt.Errorf("no thumbnail sprite %s", thumbName)
 	}
-	thumbnail, err := imgutil.EncodePNG(thumb.img)
+	thumbnail, err := ps.thumbnail(thumbKey, thumbField, thumb.img)
 	if err != nil {
 		return nil, err
 	}
