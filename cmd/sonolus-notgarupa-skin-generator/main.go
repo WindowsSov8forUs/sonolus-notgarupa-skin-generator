@@ -56,7 +56,7 @@ func main() {
 	if err != nil {
 		cli.Fatal(err)
 	}
-	if err := cli.Pack(source, filepath.Join(common.Out, "pack")); err != nil {
+	if err := cli.Pack(source, filepath.Join(common.Out, "pack"), total); err != nil {
 		cli.Fatal(err)
 	}
 	fmt.Printf("%d skins -> %s\n", done, common.Out)
