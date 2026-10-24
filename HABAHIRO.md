@@ -20,7 +20,7 @@ HABAHIRO 是 NotGarupa 的固定组成部分，生成器每次都会输出它，
 
 HABAHIRO 条目的纹理是 4096×8192，全部按原分辨率存放，没有缩小。只有宽音符图集一项就约有 15 Mpx²，所以 4096² 放不下。这超出了 Sonolus 建议的 2048²，但没有超过 8192 的上限。
 
-背景由 `sonolus-notgarupa-background-generator` 生成，条目为 `notgarupa-habahiro-normal` 与 `notgarupa-habahiro-fever`。粒子由粒子生成器负责（`notgarupa-habahiro-<方向键特效>`），不在本条目内。
+背景由 `sonolus-notgarupa-background-generator` 生成，条目为 `notgarupa-habahiro`（只有普通背景；原作只在有 Fever 的多人模式加载 fever 背景）。粒子由粒子生成器负责（`notgarupa-habahiro-<方向键特效>`），不在本条目内。
 
 ## 宽音符精灵名
 
