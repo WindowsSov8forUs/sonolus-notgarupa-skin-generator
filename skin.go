@@ -341,7 +341,7 @@ func build(ps *parts, spec master.Skin) (*Result, error) {
 	}
 
 	title := spec.Title
-	desc := fmt.Sprintf("Note: %s, lane: %s, directional: %s, judge: %s.", spec.Notes, spec.Lane, spec.Directional, spec.Judge)
+	desc := fmt.Sprintf("Note: %s, directional: %s, lane: %s, judge: %s.", spec.Notes, spec.Directional, spec.Lane, spec.Judge)
 	if spec.Habahiro {
 		desc = fmt.Sprintf("For #HABAHIRO levels (the original forces the habahiro note skin, lane and judge skin): the skin00 lane until the lane change, the original HABAHIRO wide-note atlas, its long bodies, the lane-change field and flash; directional: %s.", spec.Directional)
 	}

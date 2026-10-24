@@ -8,11 +8,11 @@
 
 | 来源 | 组合 | 条目数 |
 |---|---|---|
-| 普通设置 | 音符皮肤 7 × lane 15 × 方向键皮肤 5，判定皮肤固定 skin00 | 525 |
+| 普通设置 | 音符皮肤 7 × 方向键皮肤 5 × lane 15，判定皮肤固定 skin00 | 525 |
 | Collaboration / Limited 特殊组合 | 固定该行替换的组件（音符、lane、方向键、判定），其余轴照常排列 | 251 |
 | HABAHIRO（谱面强制） | 音符、lane、判定固定为 habahiro，方向键保留玩家设置（普通 5 种 + persona） | 6 |
 
-共 782 个条目。条目名为 `garupa-<音符>-<lane>-<方向键>`，判定皮肤不是 skin00 时再加 `-<判定>`，标题为对应的原作名称，以 ` / ` 连接（例：`garupa-skin00-skin00-skin00`「TYPE1 / レーンスキン00 / TYPE1」、`garupa-skin00-skin_bike-skin00`「TYPE1 / bikeコラボ / TYPE1」、`garupa-skin_persona`「ファントム復刻スキン」）；HABAHIRO 条目为 `garupa-habahiro-<方向键>`「HABAHIRO / TYPE1」。名称来自原作主数据（`internal/master/skins.json` 的 `names`，取 JP、EN、TW、CN 中第一个有的名称）：普通设置用各行的皮肤名（`TYPE1`、`レーンスキン00`、`エフェクトスキン00`、`SEスキン00`、`デフォルト背景` 等），Collaboration 行用季节描述（`MasterSeasonSpecial.description`，如 `ペルソナコラボ`），Limited 行用限定皮肤名（如 `エイプリルフール2019`）；同一组件出现在多行时取 Limited 行，其次取季节最早的行。特殊行替换的各轴是一个固定组合，条目名只写一次（该组合的第一个 bundle），标题只写一次（该行的名称）。条目的作者为 `GirlsBandParty`，副标题为游戏名。包中（`db.json`）的条目按原作主数据的顺序排列（即 `Items()` 的顺序）：先是普通设置，按各轴 master 行的顺序组合（默认组合在最前）；其后是特殊组合，按 Collaboration、Limited 的行号；HABAHIRO 在最后。sonolus-pack 按目录名列出条目，打包后再按这个顺序重排。没有任何途径取得原始资源的主数据条目整体不生成，见 `sonolus-notgarupa-engine/docs/EXCLUDED_RESOURCES.md`。
+共 782 个条目。条目名为 `garupa-<音符>-<方向键>-<lane>`（音符 → 方向键 → lane，条目也按这个顺序排列），判定皮肤不是 skin00 时再加 `-<判定>`，标题为对应的原作名称，以 ` / ` 连接（例：`garupa-skin00-skin00-skin00`「TYPE1 / TYPE1 / レーンスキン00」、`garupa-skin00-skin00-skin_bike`「TYPE1 / TYPE1 / bikeコラボ」、`garupa-skin_persona`「ファントム復刻スキン」）；HABAHIRO 条目为 `garupa-habahiro-<方向键>`「HABAHIRO / TYPE1」。名称来自原作主数据（`internal/master/skins.json` 的 `names`，取 JP、EN、TW、CN 中第一个有的名称）：普通设置用各行的皮肤名（`TYPE1`、`レーンスキン00`、`エフェクトスキン00`、`SEスキン00`、`デフォルト背景` 等），Collaboration 行用季节描述（`MasterSeasonSpecial.description`，如 `ペルソナコラボ`），Limited 行用限定皮肤名（如 `エイプリルフール2019`）；同一组件出现在多行时取 Limited 行，其次取季节最早的行。特殊行替换的各轴是一个固定组合，条目名只写一次（该组合的第一个 bundle），标题只写一次（该行的名称）。条目的作者为 `GirlsBandParty`，副标题为游戏名。包中（`db.json`）的条目按原作主数据的顺序排列（即 `Items()` 的顺序）：先是普通设置，按各轴 master 行的顺序组合（默认组合在最前）；其后是特殊组合，按 Collaboration、Limited 的行号；HABAHIRO 在最后。sonolus-pack 按目录名列出条目，打包后再按这个顺序重排。没有任何途径取得原始资源的主数据条目整体不生成，见 `sonolus-notgarupa-engine/docs/EXCLUDED_RESOURCES.md`。
 
 每个条目包含：
 
