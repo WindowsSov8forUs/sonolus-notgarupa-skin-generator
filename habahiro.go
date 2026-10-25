@@ -87,6 +87,9 @@ func addHabahiro(b *skinBuilder, bd *bestdori.Client) error {
 		Note: fmt.Sprintf("UITexture 1160×610 UI units, pivot bottom, bottom edge on the judge line; replaces bg_line_rhythm (lane image and Sudden area) at laneChangeTime + %.10g s", habahiroLaneChange)}, lane); err != nil {
 		return err
 	}
+	if err := addPreviewLane(b, habahiroPrefix+previewLaneSprite, "habahiro_field", "bestdori "+habahiroFieldBundle+"/bg_line_rhythm.png", lane); err != nil {
+		return err
+	}
 
 	// Lane-change flash (Root_effect SpriteRenderers, Sprites-Default = normal
 	// alpha blending, so the pixels are used as they are).

@@ -21,6 +21,7 @@
 - 该组合的音符、方向键、lane（不含技能叠加层 `game_play_line_skill_adjust_effect`）与判定精灵。
 - 所有条目共用的 HUD、lane 光柱、舞台、着色变体与字形。
 - `default/judge_auto`：默认判定图集的 judge_auto。原作在 Auto Live 中从不使用特殊判定皮肤，引擎在 Auto 中画这一个。
+- Sonolus preview 用的精灵（原作没有谱面预览）：`notgarupa/preview/lane` 是条目 lane 的 `bg_line_rhythm` 沿原作透视反投影、在判定线上方 12–400 UI 单位的行上平均得到的平面轨道条（580×2，覆盖整张场图宽度），`notgarupa/preview/line` 与其深红色着色版本 `@B41E28` 是拍线与 BPM 变化线（`preview.go`，几何见引擎 `RESOURCE_CONTRACT.md` 的「Preview 轨道」）。HABAHIRO 条目另有 `habahiro/notgarupa/preview/lane`。
 - 音符皮肤主数据 `noteSyncEdgeMargin` 为 1.1 的条目（TYPE7）带有存在标记 `notgarupa/noteSyncEdgeMargin_1.1`（1×1 透明），引擎据此把同时押线的两端向内收 1.1 × 音符缩放。
 - HABAHIRO 条目：普通命名的精灵用 skin00 音符与 lane（lane 变更之前显示 skin00 lane），另加 `habahiro/<原作名>` 的宽音符图集、长条贴图、lane 变更后的场地与闪光，见 [HABAHIRO.md](HABAHIRO.md)。它们不是与普通条目并列的皮肤：服务器不在列表中提供它们，只按玩家的方向键配置项为 `#HABAHIRO` 关卡选用（`Result.Habahiro` 为 true）。
 

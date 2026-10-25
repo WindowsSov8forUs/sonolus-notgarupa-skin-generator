@@ -154,8 +154,11 @@ func (ps *parts) field(bundle string) (*part, error) {
 		if err != nil {
 			return err
 		}
-		return b.add(SpriteMeta{Name: "bg_line_rhythm", Kind: "texture", Group: "field", Source: "bestdori " + fieldBundle + "/bg_line_rhythm.png",
-			Pivot: [2]float64{0.5, 0}, Note: "UITexture 1160×610 UI units, pivot bottom, bottom edge on the judge line"}, lane)
+		if err := b.add(SpriteMeta{Name: "bg_line_rhythm", Kind: "texture", Group: "field", Source: "bestdori " + fieldBundle + "/bg_line_rhythm.png",
+			Pivot: [2]float64{0.5, 0}, Note: "UITexture 1160×610 UI units, pivot bottom, bottom edge on the judge line"}, lane); err != nil {
+			return err
+		}
+		return addPreviewLane(b, previewLaneSprite, "field", "bestdori "+fieldBundle+"/bg_line_rhythm.png", lane)
 	})
 }
 
@@ -229,7 +232,7 @@ func (ps *parts) hud() (*part, error) {
 		if err := addGlyphs(b); err != nil {
 			return fmt.Errorf("glyphs: %w", err)
 		}
-		return nil
+		return addPreviewLines(b)
 	})
 }
 

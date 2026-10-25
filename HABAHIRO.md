@@ -74,6 +74,8 @@ habahiro/note_<族>_<s>_<s+1>_…_<s+w−1>      例：lane 2..3 → habahiro/no
 
 Sudden 区域也重新绑定到 `habahiro/bg_line_rhythm` 这张贴图，原作没有单独的图像。
 
+Sonolus preview 的平面轨道同样分两张：`notgarupa/preview/lane`（skin00 lane）与 `habahiro/notgarupa/preview/lane`（由 `habahiro/bg_line_rhythm` 反投影，580×2），引擎在 lane 变更时刻 + 0.4166666567325592 s 处换图。
+
 ### lane 变更闪光
 
 对 `e = now − T`，在 e ∈ [0, 1] 期间绘制以下 4 个四边形。
