@@ -34,7 +34,7 @@
 
 ## 命令行
 
-从 GitHub Release 下载对应平台的压缩包（linux / windows / darwin，amd64 / arm64；由 `.github/workflows/build.yml` 矩阵编译，推送 `v*` 标签时发布），解压后直接运行；也可以用 Go 安装或在本仓库中运行（仓库为私有，需要 `GOPRIVATE=github.com/WindowsSov8forUs/*` 和可访问仓库的 git 凭据）：
+从 GitHub Release 下载对应平台的压缩包（linux / windows / darwin，amd64 / arm64；由 `.github/workflows/build.yml` 矩阵编译，推送 `v*` 标签时发布），解压后直接运行；也可以用 Go 安装或在本仓库中运行：
 
 ```sh
 go install github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/cmd/sonolus-notgarupa-skin-generator@latest
@@ -72,7 +72,7 @@ err = skin.Generate(ctx, skin.Options{Source: skin.Source{CacheDir: "cache/notga
 - `Result`：`Item`（sonolus-core-go 的 `database.DatabaseSkinItem`，资源字段留空）、`Habahiro`、`Data`（`resource.SkinData`）、`Texture`、`Thumbnail`（PNG）、`Contract` 与 `Axes`（音符、方向键、lane 三个设置轴）。`Result.Files()` 按 item.json 的字段名返回资源字节："thumbnail"、"data"（已 gzip 压缩）、"texture"。命令行在打包后另写 `out/pack/garupa-axes.json`：按包中顺序列出每个可见条目的设置轴（`axis`、`bundle`、原作名称 `name`），服务器据此提供组合搜索；库中同样的信息在 `Result.Axes`（HABAHIRO 条目为空）。
 - `skin.CreateSourceTree(dir)` 创建 sonolus-pack 源目录，`(*SourceTree).Add(r)` 写入一个条目（命令行就是 `Generate` + `SourceTree` + sonolus-pack-go）。
 
-在 sonolus-server-go 中注册（作为依赖同样需要 `GOPRIVATE`）：
+在 sonolus-server-go 中注册：
 
 ```go
 err = skin.Generate(ctx, opts, func(r *skin.Result) error {
