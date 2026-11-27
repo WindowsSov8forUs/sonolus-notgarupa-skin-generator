@@ -59,7 +59,18 @@ func (s Source) bestdori(ctx context.Context) *bestdori.Client {
 		b.HTTP = s.HTTPClient
 	}
 	b.Offline, b.Log, b.Ctx = s.Offline, s.Log, ctx
+	b.Servers = bundleServers()
 	return b
+}
+
+// bundleServers is the server of each bundle of a master row from another
+// server (nil if the master does not load; Generate reports that error).
+func bundleServers() map[string]string {
+	m, err := master.Load()
+	if err != nil {
+		return nil
+	}
+	return m.BundleServers()
 }
 
 // Options configures a run. The zero value builds every item.

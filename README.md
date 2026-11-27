@@ -4,15 +4,15 @@
 
 ## 生成哪些条目
 
-默认运行即生成完整资源，没有选择单个条目的参数。条目集合由原作 JP 10.1.4 的皮肤主数据决定（`internal/master/skins.json`，规则见 `internal/master/master.go`）：
+默认运行即生成完整资源，没有选择单个条目的参数。条目集合由原作的皮肤主数据（JP 主数据的各行与 Limited 1–5，以及只存在于大陆服主数据的 Collaboration 100001、Limited 10001 / 10002；后者带 `"server": "cn"`，资源取自大陆服）决定（`internal/master/skins.json`，规则见 `internal/master/master.go`）：
 
 | 来源 | 组合 | 条目数 |
 |---|---|---|
 | 普通设置 | 音符皮肤 7 × 方向键皮肤 5 × lane 15，判定皮肤固定 skin00 | 525 |
-| Collaboration / Limited 特殊组合 | 固定该行替换的组件（音符、lane、方向键、判定），其余轴照常排列 | 251 |
-| HABAHIRO（谱面强制） | 音符、lane、判定固定为 habahiro，方向键保留玩家设置（普通 5 种 + persona） | 6 |
+| Collaboration / Limited 特殊组合 | 固定该行替换的组件（音符、lane、方向键、判定），其余轴照常排列 | 259 |
+| HABAHIRO（谱面强制） | 音符、lane、判定固定为 habahiro，方向键保留玩家设置（普通 5 种 + 特殊行的方向键 persona、skin10001、skin_bilicat、skin_bilicat01） | 9 |
 
-共 782 个条目。条目名为 `garupa-<音符>-<方向键>-<lane>`（音符 → 方向键 → lane，条目也按这个顺序排列），判定皮肤不是 skin00 时再加 `-<判定>`，标题为对应的原作名称，以 ` / ` 连接（例：`garupa-skin00-skin00-skin00`「TYPE1 / TYPE1 / レーンスキン00」、`garupa-skin00-skin00-skin_bike`「TYPE1 / TYPE1 / bikeコラボ」、`garupa-skin_persona`「ファントム復刻スキン」）；HABAHIRO 条目为 `garupa-habahiro-<方向键>`「HABAHIRO / TYPE1」。名称来自原作各服主数据（`internal/master/skins.json` 的 `names`）：每种语言用对应服的名称——日文 JP、英文 EN、繁体中文 TW、简体中文 CN，该服没有时取 JP、EN、TW、CN 中第一个有的名称（例如 Roselia 的 lane：「Roselia Lane」「Roselia的軌跡」「Roselia的按键条皮肤」）；普通设置用各行的皮肤名（`TYPE1`、`レーンスキン00`、`エフェクトスキン00`、`SEスキン00`、`デフォルト背景` 等），Collaboration 行用季节描述（`MasterSeasonSpecial.description`，如 `ペルソナコラボ`），Limited 行用限定皮肤名（如 `エイプリルフール2019`）；同一组件出现在多行时取 Limited 行，其次取季节最早的行。特殊行替换的各轴是一个固定组合，条目名只写一次（该组合的第一个 bundle），标题只写一次（该行的名称）。条目的作者为 `GirlsBandParty`，副标题为游戏名。包中（`db.json`）的条目按原作主数据的顺序排列（即 `Items()` 的顺序）：先是普通设置，按各轴 master 行的顺序组合（默认组合在最前）；其后是特殊组合，按 Collaboration、Limited 的行号；HABAHIRO 在最后。sonolus-pack 按目录名列出条目，打包后再按这个顺序重排。没有任何途径取得原始资源的主数据条目整体不生成，见 `sonolus-notgarupa-engine/docs/EXCLUDED_RESOURCES.md`。
+共 793 个条目。条目名为 `garupa-<音符>-<方向键>-<lane>`（音符 → 方向键 → lane，条目也按这个顺序排列），判定皮肤不是 skin00 时再加 `-<判定>`，标题为对应的原作名称，以 ` / ` 连接（例：`garupa-skin00-skin00-skin00`「TYPE1 / TYPE1 / レーンスキン00」、`garupa-skin00-skin00-skin_bike`「TYPE1 / TYPE1 / bikeコラボ」、`garupa-skin_persona`「ファントム復刻スキン」）；HABAHIRO 条目为 `garupa-habahiro-<方向键>`「HABAHIRO / TYPE1」。名称来自原作各服主数据（`internal/master/skins.json` 的 `names`）：每种语言用对应服的名称——日文 JP、英文 EN、繁体中文 TW、简体中文 CN，该服没有时取 JP、EN、TW、CN 中第一个有的名称（例如 Roselia 的 lane：「Roselia Lane」「Roselia的軌跡」「Roselia的按键条皮肤」）；普通设置用各行的皮肤名（`TYPE1`、`レーンスキン00`、`エフェクトスキン00`、`SEスキン00`、`デフォルト背景` 等），Collaboration 行用季节描述（`MasterSeasonSpecial.description`，如 `ペルソナコラボ`），Limited 行用限定皮肤名（如 `エイプリルフール2019`）；同一组件出现在多行时取 Limited 行，其次取季节最早的行。特殊行替换的各轴是一个固定组合，条目名只写一次（该组合的第一个 bundle），标题只写一次（该行的名称）。条目的作者为 `GirlsBandParty`，副标题为游戏名。包中（`db.json`）的条目按原作主数据的顺序排列（即 `Items()` 的顺序）：先是普通设置，按各轴 master 行的顺序组合（默认组合在最前）；其后是特殊组合，按 Collaboration、Limited 的行号；HABAHIRO 在最后。sonolus-pack 按目录名列出条目，打包后再按这个顺序重排。没有任何途径取得原始资源的主数据条目整体不生成，见 `sonolus-notgarupa-engine/docs/EXCLUDED_RESOURCES.md`。
 
 每个条目包含：
 
@@ -29,7 +29,7 @@
 
 来源：
 
-- Bestdori 资源（音符、方向键、场地、判定皮肤），按服务器优先级取第一个拥有该 bundle 的服务器，运行时下载到 `.cache/`。
+- Bestdori 资源（音符、方向键、场地、判定皮肤），按服务器优先级取第一个拥有该 bundle 的服务器；大陆服主数据行的 bundle 先在 cn 查找（如 `skin_bilicat`、`skin10001`），运行时下载到 `.cache/`。
 - 原作 APK 内置资源（不在 AssetBundle 中、无法联网获取）：HUD 图集（`rhythm-game-ui`、`rhythm-game-additive`、连击数字、`uicommon`、`ui-additive-effect`）、lane tap 光柱、Sudden 线、分数槽高分段贴图、舞台灯光 / 音箱 / 荧光棒、生命遮罩 `sub_glow`（演奏场景的 GameOverCover 贴图）与 `sgm` 字体，随项目放在 `assets/apk/`（`go:embed` 编入程序）。`assets/apk/render-catalog.json` 是这些图集的 atlas 行（矩形、pivot、border）。
 
 ## 命令行
@@ -41,7 +41,7 @@ go install github.com/WindowsSov8forUs/sonolus-notgarupa-skin-generator/cmd/sono
 sonolus-notgarupa-skin-generator          # 生成全部条目
 ```
 
-输出到 `out/`：`out/source`（sonolus-pack 源）、`out/pack`（可直接被服务器加载）与 `out/contracts/<条目>.json`（每个精灵的尺寸、pivot、PPU、裁切、着色、切片、字形度量）。首次运行下载约 18 MB 素材；全部 782 个条目约 1.3 GB，8 核约 10 分钟。
+输出到 `out/`：`out/source`（sonolus-pack 源）、`out/pack`（可直接被服务器加载）与 `out/contracts/<条目>.json`（每个精灵的尺寸、pivot、PPU、裁切、着色、切片、字形度量）。首次运行下载约 18 MB 素材；全部 793 个条目约 1.3 GB，8 核约 10 分钟。
 
 参数只用于特殊场景：
 
@@ -50,7 +50,7 @@ sonolus-notgarupa-skin-generator          # 生成全部条目
 | `-out` | `out` | 输出目录 |
 | `-cache` | `.cache` | 下载缓存目录 |
 | `-offline` | false | 只使用缓存中的下载 |
-| `-regions` | `jp,en,tw,cn,kr` | Bestdori 服务器优先级。各服有独占素材，每个 bundle 取自第一个拥有它的服务器（该 bundle 的全部文件都来自同一服）；某服没有时记录在缓存中，`-offline` 重跑时选择相同的服务器 |
+| `-regions` | `jp,en,tw,cn,kr` | Bestdori 服务器优先级。各服有独占素材，每个 bundle 取自第一个拥有它的服务器（该 bundle 的全部文件都来自同一服；大陆服主数据行的 bundle 先查 cn）；某服没有时记录在缓存中，`-offline` 重跑时选择相同的服务器 |
 | `-j` | CPU 数 | 同时生成的条目数（内存不足时调小） |
 | `-v` | false | 输出下载日志 |
 | `-version` | false | 输出版本号后退出 |

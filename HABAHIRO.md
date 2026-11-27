@@ -70,7 +70,7 @@ habahiro/note_<族>_<s>_<s+1>_…_<s+w−1>      例：lane 2..3 → habahiro/no
 |---|---|---|
 | `bg_line_rhythm` | `habahiro/bg_line_rhythm` | 1160×610，pivot (0.5, 0)，UITexture（UI 单位 = 像素） |
 | `game_play_line` | `habahiro/game_play_line` | 1800×**43**（skin00 为 38），pivot (0.5, 0.5)，PPU 69 |
-| `game_play_line_skill_adjust_effect` | `habahiro/game_play_line_skill_adjust_effect` | 1800×43，PPU 69（需 `-skill-adjust`） |
+| `game_play_line_skill_adjust_effect` | `habahiro/game_play_line_skill_adjust_effect` | 1800×43，PPU 69；技能叠加层引擎不绘制，生成器不输出（普通与 HABAHIRO 条目都没有这两个精灵，也没有对应参数） |
 
 Sudden 区域也重新绑定到 `habahiro/bg_line_rhythm` 这张贴图，原作没有单独的图像。
 
